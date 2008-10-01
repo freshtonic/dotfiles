@@ -20,7 +20,12 @@ augroup END
 
 nmap <leader>rci :%!ruby-code-indenter<cr> 
 
-:command -bar -nargs=1 OpenURL :!sensible-browser <args>
-:colorscheme vividchalk
+command -bar -nargs=1 OpenURL :!sensible-browser <args>
+colorscheme vividchalk
 
-:helptags ~/.vim/doc  
+helptags ~/.vim/doc 
+
+" Display the filename in the statusline
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" Make sure the filename stays after scrolling
+set laststatus=2

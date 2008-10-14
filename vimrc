@@ -4,7 +4,8 @@ nnoremap <silent> <C-p> :tabprevious<CR>
 set mouse=a
 set tabstop=2
 set expandtab
-set number
+" uncomment below to enable line numbering
+" set number
 set tabpagemax=30
 syntax on
 set nocompatible

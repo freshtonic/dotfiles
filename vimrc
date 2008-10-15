@@ -19,6 +19,8 @@ augroup myfiletypes
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 augroup END
 
+au! BufRead,BufNewFile *.haml setfiletype haml 
+
 nmap <leader>rci :%!ruby-code-indenter<cr> 
 
 command -bar -nargs=1 OpenURL :!sensible-browser <args>

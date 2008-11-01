@@ -19,14 +19,14 @@ augroup myfiletypes
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 augroup END
 
-au! BufRead,BufNewFile *.haml setfiletype haml 
+au! BufRead,BufNewFile *.haml setfiletype haml
 
-nmap <leader>rci :%!ruby-code-indenter<cr> 
+nmap <leader>rci :%!ruby-code-indenter<cr>
 
 command -bar -nargs=1 OpenURL :!sensible-browser <args>
 colorscheme vividchalk
 
-helptags ~/.vim/doc 
+helptags ~/.vim/doc
 
 " Display the filename in the statusline
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
@@ -48,3 +48,10 @@ autocmd BufWritePre * :call TrimWhiteSpace()
 map <F2> :call TrimWhiteSpace()<CR>
 map! <F2> :call TrimWhiteSpace()<CR>
 
+"ruby
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+"improve autocomplete menu color
+highlight Pmenu ctermbg=238 gui=bold

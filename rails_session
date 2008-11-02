@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# This script starts a Gnome Terminal with a number of tabs open
+# each of which is titled for its purpose.
+
+WORK_DIR=$1
+
+gnome-terminal --hide-menubar \
+  --tab-with-profile=Default \
+  --title=VimRails \
+  --working-directory=$WORK_DIR \
+  --command="bash -c 'vim; bash'" \
+  \
+  --tab-with-profile=Default \
+  --title=Bash \
+  --working-directory=$WORK_DIR \
+  \
+  --tab-with-profile=Default \
+  --title=MySQL \
+  --working-directory=$WORK_DIR \
+  --command="bash -c 'mysql -uroot -pbigbarry fred_development; bash'" \
+  \
+  --tab-with-profile=Default \
+  --title=Server \
+  --working-directory=$WORK_DIR \
+  --command="bash -c './script/server; bash'" \
+  \
+  --tab-with-profile=Default \
+  --title=RailsConsole \
+  --working-directory=$WORK_DIR \
+  --command="bash -c './script/console; bash'" \
+  \
+  --tab-with-profile=Default \
+  --title=DevelopmentLog \
+  --working-directory=$WORK_DIR \
+  --command="bash -c '/usr/bin/tail -F log/development.log; bash'" \
+  \
+  --tab-with-profile=Default \
+  --title=TestLog \
+  --working-directory=$WORK_DIR \
+  --command="bash -c '/usr/bin/tail -F log/test.log; bash'"
+

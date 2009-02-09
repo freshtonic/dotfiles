@@ -86,6 +86,11 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 
 alias gd='nohup git daemon --reuseaddr --verbose --base-path=$HOME/incontext --export-all 2>&1 > /dev/null & '
 
+#alias gitvi='vim -p $(git ls-files -m -o -t --exclude-standard | egrep "^(\?|C)" | awk '{print $2}')"
+
+gitvi() {
+        vim -p $(git ls-files -m -o -t --exclude-standard | egrep "^(\?|C)" | awk '{print $2}')
+}
 
 function urlencode {
    echo $1 | perl -MURI::Escape -lne 'print uri_escape($_)'

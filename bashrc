@@ -100,7 +100,13 @@ function urldecode {
    echo $1 | perl -MURI::Escape -lne 'print uri_unescape($_)'
 }
 
-set -o vi
+cgr() {
+    cd $(dirname $(__gitdir))
+}
+
+gr() {
+    dirname $(__gitdir)
+}
 
 keychain --quiet id_rsa
 . ~/.keychain/$HOSTNAME-sh

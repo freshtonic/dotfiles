@@ -39,7 +39,6 @@ function TrimWhiteSpace()
   ''
 :endfunction
 
-set list listchars=trail:.,extends:>
 autocmd FileWritePre * :call TrimWhiteSpace()
 autocmd FileAppendPre * :call TrimWhiteSpace()
 autocmd FilterWritePre * :call TrimWhiteSpace()

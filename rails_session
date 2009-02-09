@@ -9,16 +9,16 @@ gnome-terminal --hide-menubar \
   --tab-with-profile=Default \
   --title=VimRails \
   --working-directory=$WORK_DIR \
-  --command="bash -c 'vim; bash'" \
+  --command="bash -c 'gitvi; bash'" \
   \
   --tab-with-profile=Default \
   --title=Bash \
   --working-directory=$WORK_DIR \
   \
   --tab-with-profile=Default \
-  --title=MySQL \
+  --title=PostgreSQL \
   --working-directory=$WORK_DIR \
-  --command="bash -c 'mysql -uroot -pbigbarry fred_development; bash'" \
+  --command="bash -c '$WORK_DIR/script/dbconsole; bash'" \
   \
   --tab-with-profile=Default \
   --title=Server \

@@ -110,3 +110,9 @@ gr() {
 
 keychain --quiet id_rsa
 . ~/.keychain/$HOSTNAME-sh
+
+gemdoc() {
+  gem_dir=`gem env gemdir`
+  firefox $gem_dir/doc/`$(which ls) $gem_dir/doc | grep $1 | sort | tail -1`/rdoc/index.html
+}
+

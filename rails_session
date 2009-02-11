@@ -18,7 +18,7 @@ gnome-terminal --hide-menubar \
   --tab-with-profile=Default \
   --title=PostgreSQL \
   --working-directory=$WORK_DIR \
-  --command="bash -c '$WORK_DIR/script/dbconsole; bash'" \
+  --command="bash -c './script/dbconsole; bash'" \
   \
   --tab-with-profile=Default \
   --title=Server \
@@ -33,10 +33,17 @@ gnome-terminal --hide-menubar \
   --tab-with-profile=Default \
   --title=DevelopmentLog \
   --working-directory=$WORK_DIR \
-  --command="bash -c '/usr/bin/tail -F log/development.log; bash'" \
+  --command="bash -c '/usr/bin/inotail -f log/development.log; bash'" \
   \
   --tab-with-profile=Default \
   --title=TestLog \
   --working-directory=$WORK_DIR \
-  --command="bash -c '/usr/bin/tail -F log/test.log; bash'"
+  --command="bash -c '/usr/bin/inotail -f log/test.log; bash'" \
+  \
+  --tab-with-profile=Default \
+  --title=BackgroundRbLog \
+  --working-directory=$WORK_DIR \
+  --command="bash -c '/usr/bin/inotail -f log/$(ls $WORK_DIR/log | grep background | grep -v debug | head -n1); bash'"
+
+
 

@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+# Look at the modified and untracked files in a Git repo and open them in vim.
+# If there are no modified or untracked files, open all of the files that were
+# touched by the very last commit.
+#
+# TODO: ignore binaries
+# TODO: recurse into new directories to produce file list while respecting .gitignore
+
+def open_vi(files)
+  command = "vi -p #{files.map{|f| "'#{f.strip}'"}.join(" ")}"
+  $stderr.puts "executing command '#{command}'"
+  exec(command)
+end
+
+if !File.exists?("#{Dir.pwd}/.git")
+  $stderr.puts "not in a Git repository"
+  exit 1
+end
+
+# Get the list of modified and untracked files
+files = `git ls-files -m -o -t --exclude-standard | egrep "^(\?|C)" | awk '{print $2}'`
+
+if files.length > 0
+  open_vi(files)
+else
+  # There are no changed or modified files, so open all files in last commit
+  files = `git diff-tree HEAD --name-only -r`
+  file = files[1..-1] # remove the first line as it's just the SHA1 of the commit
+  open_vi(files)
+end
+
+
+
+
+

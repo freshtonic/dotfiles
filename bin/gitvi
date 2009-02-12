@@ -4,13 +4,18 @@
 # If there are no modified or untracked files, open all of the files that were
 # touched by the very last commit.
 #
-# TODO: ignore binaries
 # TODO: recurse into new directories to produce file list while respecting .gitignore
 
 def open_vi(files)
+  files = remove_binaries(files)
   command = "vi -p #{files.map{|f| "'#{f.strip}'"}.join(" ")}"
-  $stderr.puts "executing command '#{command}'"
   exec(command)
+end
+
+def remove_binaries(files)
+  files.select do |f|
+    `file -i -b #{f}`.strip =~ /text/
+  end
 end
 
 if !File.exists?("#{Dir.pwd}/.git")

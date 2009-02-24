@@ -4,11 +4,9 @@
 # If there are no modified or untracked files, open all of the files that were
 # touched by the very last commit.
 #
-# TODO: recurse into new directories to produce file list while respecting .gitignore
-
-def open_vi(files)
+def vim(files)
   files = remove_binaries(files)
-  command = "vi -p #{files.map{|f| "'#{f.strip}'"}.join(" ")}"
+  command = "vim -p #{files.map{|f| "'#{f.strip}'"}.join(" ")}"
   exec(command)
 end
 
@@ -27,12 +25,16 @@ end
 files = `git ls-files -m -o -t --exclude-standard | egrep "^(\?|C)" | awk '{print $2}'`
 
 if files.length > 0
-  open_vi(files)
+  vim(files)
 else
-  # There are no changed or modified files, so open all files in last commit
-  files = `git diff-tree HEAD --name-only -r`
-  file = files[1..-1] # remove the first line as it's just the SHA1 of the commit
-  open_vi(files)
+  # There are no changed or modified files, so open
+  # all files in last commit by me.
+  latest_commit_by_me = `git log --no-color --pretty=oneline --author=$(git config --get user.email) | head -n1 | awk '{print $1}'`.strip
+  if latest_commit_by_me != ""
+    files = `git diff-tree #{latest_commit_by_me} --name-only -r`
+    file = files[1..-1] # remove the first line as it's just the SHA1 of the commit
+    vim(files)
+  end
 end
 
 

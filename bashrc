@@ -2,9 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-export JDK_HOME=/usr/lib/jvm/java-6-sun
-export CATALINA_HOME=/usr/share/tomcat5
-export JAVA_HOME=$JDK_HOME
 source ~/.bash_aliases
 export PATH=$PATH:~/bin
 export PATH=$PATH:/var/lib/gems/1.8/bin

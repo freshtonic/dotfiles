@@ -12,6 +12,11 @@ set nocompatible
 filetype plugin indent on
 runtime! macros/matchit.vim
 
+" auto word wrap
+" and insert line breaks
+set textwidth=78
+set wm=2
+
 augroup myfiletypes
   " Clear old autocmds in group
   autocmd!

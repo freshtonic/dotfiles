@@ -3,6 +3,8 @@
 # This script starts a Gnome Terminal with a number of tabs open
 # each of which is titled for its purpose.
 
+# It also opens Firefox with a bunch of tabs I use every day.
+
 WORK_DIR=$1
 
 gnome-terminal --hide-menubar \
@@ -45,5 +47,18 @@ gnome-terminal --hide-menubar \
   --working-directory=$WORK_DIR \
   --command="bash -c '/usr/bin/inotail -f log/$(ls $WORK_DIR/log | grep background | grep -v debug | head -n1); bash'"
 
-
-
+nohup firefox -new-tab http://localhost:3000 &
+sleep 5
+nohup firefox -new-tab http://api.rubyonrails.org &
+sleep 1
+nohup firefox -new-tab http://corelib.rubyonrails.org/ &
+sleep 1
+nohup firefox -new-tab http://stdlib.rubyonrails.org/ &
+sleep 1
+nohup firefox -new-tab http://pm.incontext.com.au &
+sleep 1
+nohup firefox -new-tab http://gmail.com &
+sleep 1
+nohup firefox -new-tab http://twitter.com &
+sleep 1
+nohup firefox -new-tab http://reader.google.com &

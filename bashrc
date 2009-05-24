@@ -5,6 +5,7 @@
 source ~/.bash_aliases
 export PATH=$PATH:~/bin
 export PATH=$PATH:/var/lib/gems/1.8/bin
+export PATH=$PATH:/home/james/.gem/ruby/1.8/bin
 
 
 # If not running interactively, don't do anything

@@ -78,3 +78,6 @@ function! s:ETW(what, ...)
   endfor
 endfunction
 
+map <T> TaskList
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete

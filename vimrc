@@ -16,6 +16,7 @@ set backspace=indent,eol,start  "bs:    allows you to backspace over the listed 
 set linebreak                   "lbr:   causes vim to not wrap text in the middle of a word
 " If enabled, the following command absolutely gives me the shits
 " set wrap                        "wrap:  wraps lines by default
+set nowrap
 
 set showmode                    "smd:   shows current vi mode in lower left
 set showcmd                     "sc:    shows typed commands

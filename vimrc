@@ -14,7 +14,8 @@ set hlsearch                    "hls:   highlights search results
 nmap <silent> <C-N> :silent noh<CR>
 set backspace=indent,eol,start  "bs:    allows you to backspace over the listed character types
 set linebreak                   "lbr:   causes vim to not wrap text in the middle of a word
-set wrap                        "wrap:  wraps lines by default
+" If enabled, the following command absolutely gives me the shits
+" set wrap                        "wrap:  wraps lines by default
 
 set showmode                    "smd:   shows current vi mode in lower left
 set showcmd                     "sc:    shows typed commands
@@ -124,6 +125,7 @@ augroup myfiletypes
   autocmd!
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+  autocmd FileType python set ai ts=4 sts=4 et sw=4
 augroup END
 
 au! BufRead,BufNewFile *.haml setfiletype haml
@@ -131,7 +133,7 @@ au! BufRead,BufNewFile *.haml setfiletype haml
 nmap <leader>rci :%!ruby-code-indenter<cr>
 
 command -bar -nargs=1 OpenURL :!sensible-browser <args>
-colorscheme vividchalk
+colorscheme tango
 
 helptags ~/.vim/doc
 

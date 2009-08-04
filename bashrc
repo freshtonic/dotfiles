@@ -7,6 +7,7 @@ export PATH=$PATH:~/bin
 export PATH=$PATH:/var/lib/gems/1.8/bin
 export PATH=$PATH:/home/james/.gem/ruby/1.8/bin
 
+set -o vi
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -100,7 +101,7 @@ gr() {
     dirname $(__gitdir)
 }
 
-keychain --quiet id_rsa
+keychain --quiet id_rsa_cmcrc
 . ~/.keychain/$HOSTNAME-sh
 
 gemdoc() {

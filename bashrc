@@ -6,11 +6,17 @@ source ~/.bash_aliases
 export PATH=$PATH:~/bin
 export PATH=$PATH:/var/lib/gems/1.8/bin
 export PATH=$PATH:/home/james/.gem/ruby/1.8/bin
+set -o vi
+
+# TODO: figure out a way of keeping OSX and Linux versions of this
+# file separated...
 # The following fixes iTerm issues.
 # unix2003 is the default in Terminal.app but not in iTerm it seems.
 export COMMAND_MODE=unix2003
-set -o vi
-alias vi="vim"
+alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
+export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 
 . ~/.git-completion.bash
 

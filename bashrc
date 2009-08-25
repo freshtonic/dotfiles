@@ -6,6 +6,8 @@ source ~/.bash_aliases
 export PATH=$PATH:~/bin
 export PATH=$PATH:/var/lib/gems/1.8/bin
 export PATH=$PATH:/home/james/.gem/ruby/1.8/bin
+# Allows us to execute MacPorts stuff within this script.
+PATH=$PATH:/opt/local/bin
 set -o vi
 
 # TODO: figure out a way of keeping OSX and Linux versions of this
@@ -70,4 +72,6 @@ gr() {
     dirname $(__gitdir)
 }
 
-
+# Make sure additional SSH keys will be tried when making SSH connections
+keychain --quiet id_rsa_cmcrc
+source ~/.keychain/$HOSTNAME-sh

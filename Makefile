@@ -1,28 +1,28 @@
 
-/home/jsadler/.vim: vim
+$(HOME)/.vim: vim
 	ln -f -s $(shell pwd)/vim $@
 
-/home/jsadler/.vimrc: vimrc
+$(HOME)/.vimrc: vimrc
 	ln -f -s $(shell pwd)/vimrc $@
 
-/home/jsadler/.bashrc: bashrc
+$(HOME)/.bashrc: bashrc
 	ln -f -s $(shell pwd)/bashrc $@
 
-/home/jsadler/.Xmodmap: Xmodmap
+$(HOME)/.Xmodmap: Xmodmap
 	ln -f -s $(shell pwd)/Xmodmap $@
 
-/home/jsadler/bin/gitvi: bin/gitvi
-	cp bin/gitvi /home/jsadler/bin/
+$(HOME)/bin/gitvi: bin/gitvi
+	cp bin/gitvi $(HOME)/bin/
 
-all: /home/jsadler/.vim \
-	/home/jsadler/.vimrc \
-	/home/jsadler/.bashrc \
-	/home/jsadler/bin/gitvi \
-	/home/jsadler/.Xmodmap
+install: $(HOME)/.vim \
+	$(HOME)/.vimrc \
+	$(HOME)/.bashrc \
+	$(HOME)/bin/gitvi \
+	$(HOME)/.Xmodmap
 
 clean:
-	rm /home/jsadler/.vim \
-        /home/jsadler/.vimrc \
-        /home/jsadler/.bashrc \
-        /home/jsadler/bin/gitvi \
-	/home/jsadler/.Xmodmap
+	rm -f $(HOME)/.vim \
+        $(HOME)/.vimrc \
+        $(HOME)/.bashrc \
+        $(HOME)/bin/gitvi \
+	$(HOME)/.Xmodmap

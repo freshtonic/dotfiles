@@ -18,14 +18,16 @@ if !exists('g:git_highlight_blame')
     let g:git_highlight_blame = 0
 endif
 
-nnoremap <Leader>gd :GitDiff<Enter>
-nnoremap <Leader>gD :GitDiff --cached<Enter>
-nnoremap <Leader>gs :GitStatus<Enter>
-nnoremap <Leader>gl :GitLog<Enter>
-nnoremap <Leader>ga :GitAdd<Enter>
-nnoremap <Leader>gA :GitAdd <cfile><Enter>
-nnoremap <Leader>gc :GitCommit<Enter>
-nnoremap <Leader>gp :GitPullRebase<Enter>
+if !exists('g:git_no_map_default') || !g:git_no_map_default
+    nnoremap <Leader>gd :GitDiff<Enter>
+    nnoremap <Leader>gD :GitDiff --cached<Enter>
+    nnoremap <Leader>gs :GitStatus<Enter>
+    nnoremap <Leader>gl :GitLog<Enter>
+    nnoremap <Leader>ga :GitAdd<Enter>
+    nnoremap <Leader>gA :GitAdd <cfile><Enter>
+    nnoremap <Leader>gc :GitCommit<Enter>
+    nnoremap <Leader>gp :GitPullRebase<Enter>
+endif
 
 " Ensure b:git_dir exists.
 function! s:GetGitDir()
@@ -45,7 +47,11 @@ function! GitBranch()
 
     if strlen(git_dir) && filereadable(git_dir . 'HEAD')
         let lines = readfile(git_dir . 'HEAD')
-        return len(lines) ? matchstr(lines[0], '[^/]*$') : ''
+        if !len(lines)
+            return ''
+        else
+            return matchstr(lines[0], 'refs/heads/\zs.\+$')
+        endif
     else
         return ''
     endif
@@ -339,6 +345,6 @@ command!          GitBlame            call GitBlame()
 command! -nargs=+ Git                 call GitDoCommand(<q-args>)
 command!          GitVimDiffMerge     call GitVimDiffMerge()
 command!          GitVimDiffMergeDone call GitVimDiffMergeDone()
-command!          GitPull             call GitPull(<q-args>)
+command! -nargs=* GitPull             call GitPull(<q-args>)
 command!          GitPullRebase       call GitPull('--rebase')
-command!          GitPush             call GitPush('')
+command! -nargs=* GitPush             call GitPush(<q-args>)

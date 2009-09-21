@@ -52,6 +52,7 @@ set pastetoggle=<F5>            "pt:    useful so auto-indenting doesn't mess up
 " Fix for legacy vi inconsistency
 map Y y$
 
+colorscheme tango
 
 "lcs:   displays tabs with :set list & displays when a line runs off-screen
 set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
@@ -134,7 +135,6 @@ au! BufRead,BufNewFile *.haml setfiletype haml
 nmap <leader>rci :%!ruby-code-indenter<cr>
 
 command -bar -nargs=1 OpenURL :!sensible-browser <args>
-colorscheme tango
 
 helptags ~/.vim/doc
 

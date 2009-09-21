@@ -7,6 +7,9 @@ $(HOME)/.vim: vim
 $(HOME)/.vimrc: vimrc
 	ln -f -s $(shell pwd)/vimrc $@
 
+$(HOME)/.gvimrc: vimrc
+	cp $^ $(HOME)/.gvimrc
+
 $(HOME)/.bashrc: bashrc
 	ln -f -s $(shell pwd)/bashrc $@
 
@@ -18,6 +21,7 @@ $(HOME)/bin/gitvi: bin/gitvi
 
 all: $(HOME)/.vim \
 	$(HOME)/.vimrc \
+	$(HOME)/.gvimrc \
 	$(HOME)/.bashrc \
 	$(HOME)/bin/gitvi \
 	$(HOME)/.Xmodmap

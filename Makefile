@@ -19,7 +19,7 @@ $(HOME)/.Xmodmap: Xmodmap
 $(HOME)/bin/gitvi: bin/gitvi
 	cp bin/gitvi $(HOME)/bin/
 
-all: $(HOME)/.vim \
+install: $(HOME)/.vim \
 	$(HOME)/.vimrc \
 	$(HOME)/.gvimrc \
 	$(HOME)/.bashrc \
@@ -27,9 +27,9 @@ all: $(HOME)/.vim \
 	$(HOME)/.Xmodmap
 
 clean:
-	rm $(HOME)/.vim \
-        $(HOME)/.vimrc \
+	rm -f $(HOME)/.vim \
 	$(HOME)/.gvimrc \
+        $(HOME)/.vimrc \
         $(HOME)/.bashrc \
         $(HOME)/bin/gitvi \
 	$(HOME)/.Xmodmap

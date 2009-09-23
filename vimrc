@@ -9,14 +9,12 @@ set nocompatible                "cp:    turns off strct vi compatibility
 set incsearch                   "is:    automatically begins searching as you type
 set ignorecase                  "ic:    ignores case when pattern matching
 set smartcase                   "scs:   ignores ignorecase when pattern contains uppercase characters
-set hlsearch                    "hls:   highlights search results
+"set hlsearch                    "hls:   highlights search results
 " Use ctrl-n to unhighlight search results in normal mode:
 nmap <silent> <C-N> :silent noh<CR>
 set backspace=indent,eol,start  "bs:    allows you to backspace over the listed character types
 set linebreak                   "lbr:   causes vim to not wrap text in the middle of a word
-" If enabled, the following command absolutely gives me the shits
-" set wrap                        "wrap:  wraps lines by default
-set nowrap
+set nowrap                        "nowrap:  don't wraps lines by default
 
 set showmode                    "smd:   shows current vi mode in lower left
 set showcmd                     "sc:    shows typed commands
@@ -119,8 +117,11 @@ filetype plugin indent on
 
 " auto word wrap
 " and insert line breaks
-set textwidth=78
-set wm=2
+" set textwidth=78
+" set wm=2
+" The following disables auto-insert loine break behaviour.
+set textwidth=0
+set wm=0
 
 augroup myfiletypes
   " Clear old autocmds in group

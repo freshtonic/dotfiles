@@ -3,11 +3,14 @@
 # for examples
 
 source ~/.bash_aliases
-export PATH=$PATH:~/bin
 export PATH=$PATH:/var/lib/gems/1.8/bin
 export PATH=$PATH:/home/james/.gem/ruby/1.8/bin
 # Allows us to execute MacPorts stuff within this script.
 export PATH=$PATH:/opt/local/bin
+export PATH=$PATH:~/bin:/usr/local/bin
+
+
+
 set -o vi
 
 # TODO: figure out a way of keeping OSX and Linux versions of this

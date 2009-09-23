@@ -8,7 +8,7 @@ $(HOME)/.vimrc: vimrc
 	ln -f -s $(shell pwd)/vimrc $@
 
 $(HOME)/.gvimrc: vimrc
-	cp $^ $(HOME)/.gvimrc
+	ln -f -s $(shell pwd)/gvimrc $@
 
 $(HOME)/.bashrc: bashrc
 	ln -f -s $(shell pwd)/bashrc $@
@@ -29,6 +29,7 @@ all: $(HOME)/.vim \
 clean:
 	rm $(HOME)/.vim \
         $(HOME)/.vimrc \
+	$(HOME)/.gvimrc \
         $(HOME)/.bashrc \
         $(HOME)/bin/gitvi \
 	$(HOME)/.Xmodmap

@@ -13,6 +13,9 @@ $(HOME)/.gvimrc: vimrc
 $(HOME)/.bashrc: bashrc
 	ln -f -s $(shell pwd)/bashrc $@
 
+$(HOME)/.git-completion.sh: git-completion.sh
+	ln -f -s $(shell pwd)/git-completion.sh $@
+
 $(HOME)/.Xmodmap: Xmodmap
 	ln -f -s $(shell pwd)/Xmodmap $@
 

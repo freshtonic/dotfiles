@@ -19,6 +19,9 @@ $(HOME)/.git-completion.sh: git-completion.sh
 $(HOME)/.Xmodmap: Xmodmap
 	ln -f -s $(shell pwd)/Xmodmap $@
 
+$(HOME)/.irbrc: irbrc 
+	ln -f -s $(shell pwd)/irbrc $@
+
 $(HOME)/bin/gitvi: bin/gitvi
 	cp bin/gitvi $(HOME)/bin/
 
@@ -26,6 +29,7 @@ install: $(HOME)/.vim \
 	$(HOME)/.vimrc \
 	$(HOME)/.gvimrc \
 	$(HOME)/.bashrc \
+	$(HOME)/.irbrc \
 	$(HOME)/bin/gitvi \
 	$(HOME)/.Xmodmap
 
@@ -34,5 +38,6 @@ clean:
 	$(HOME)/.gvimrc \
         $(HOME)/.vimrc \
         $(HOME)/.bashrc \
+        $(HOME)/.irbrc \
         $(HOME)/bin/gitvi \
 	$(HOME)/.Xmodmap

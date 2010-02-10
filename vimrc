@@ -1,15 +1,15 @@
 set autoindent
-set toolbar=
 set dir=/tmp
 filetype plugin on
 filetype plugin indent on
-syntax on                       "syn:   syntax highlighting
+syntax on
 
 set nocompatible                "cp:    turns off strct vi compatibility
 set incsearch                   "is:    automatically begins searching as you type
-set ignorecase                  "ic:    ignores case when pattern matching
+set noignorecase                  "no ignores case when pattern matching
 set smartcase                   "scs:   ignores ignorecase when pattern contains uppercase characters
-"set hlsearch                    "hls:   highlights search results
+nnoremap ; :set invhlsearch<CR>
+set hlsearch                    "hls:   highlights search results
 " Use ctrl-n to unhighlight search results in normal mode:
 nmap <silent> <C-N> :silent noh<CR>
 set backspace=indent,eol,start  "bs:    allows you to backspace over the listed character types
@@ -28,7 +28,7 @@ set viminfo='100,f1,:100,/100   "vi:    For a nice, huuuuuge viminfo file
 
 " Toggle line wrapping in normal mode:
 nmap <silent> <C-P> :set nowrap!<CR>:set nowrap?<CR>
-set showmatch                   "sm:    flashes matching brackets or parentheses
+set noshowmatch                   "sm:    don't flashe matching brackets or parentheses
 set nobackup                    "bk:    does not write a persistent backup file of an edited file
 set writebackup                 "wb:    does keep a backup file while editing a file
 
@@ -50,7 +50,9 @@ set pastetoggle=<F5>            "pt:    useful so auto-indenting doesn't mess up
 " Fix for legacy vi inconsistency
 map Y y$
 
-colorscheme tango
+set background=dark 
+set t_Co=256
+colorscheme ir_black
 
 "lcs:   displays tabs with :set list & displays when a line runs off-screen
 set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
@@ -97,29 +99,13 @@ function! Scratch()
 endfunction
 noremap <silent> ,s :exe Scratch()<CR>
 
-
-
-
-" My old stuff here
-
 nnoremap <silent> <C-n> :tabnext<CR>
 nnoremap <silent> <C-p> :tabprevious<CR>
 set mouse=a
-" set tabstop=2
-" set expandtab
-" uncomment below to enable line numbering
-" set number
 set tabpagemax=30
-syntax on
 set nocompatible
 filetype plugin indent on
-" runtime! macros/matchit.vim
 
-" auto word wrap
-" and insert line breaks
-" set textwidth=78
-" set wm=2
-" The following disables auto-insert loine break behaviour.
 set textwidth=0
 set wm=0
 
@@ -132,10 +118,6 @@ augroup myfiletypes
 augroup END
 
 au! BufRead,BufNewFile *.haml setfiletype haml
-
-nmap <leader>rci :%!ruby-code-indenter<cr>
-
-command -bar -nargs=1 OpenURL :!sensible-browser <args>
 
 helptags ~/.vim/doc
 
@@ -150,9 +132,6 @@ function TrimWhiteSpace()
   ''
 :endfunction
 
-map <F2> :call TrimWhiteSpace()<CR>
-map! <F2> :call TrimWhiteSpace()<CR>
-
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
@@ -161,24 +140,14 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 
-" Open multiple files in tabs in one command
-command! -complete=file -nargs=+ Etabs call s:ETW('tabnew', <f-args>)
-command! -complete=file -nargs=+ Ewindows call s:ETW('new', <f-args>)
-command! -complete=file -nargs=+ Evwindows call s:ETW('vnew', <f-args>)
-
-function! s:ETW(what, ...)
-  for f1 in a:000
-    let files = glob(f1)
-    if files == ''
-      execute a:what . ' ' . escape(f1, '\ "')
-    else
-      for f2 in split(files, "\n")
-        execute a:what . ' ' . escape(f2, '\ "')
-      endfor
-    endif
-  endfor
-endfunction
-
-map <T> TaskList
-
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+" Disable the toolbar if running MacVim
+if has("gui_running")
+    set guioptions=egmrt
+endif
+" Stop that fucking beep!
+set noerrorbells
+set visualbell
+set t_vb=
+

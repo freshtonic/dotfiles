@@ -7,7 +7,8 @@ export PATH=$PATH:/var/lib/gems/1.8/bin
 export PATH=$PATH:$HOME/.gem/ruby/1.8/bin
 # Allows us to execute MacPorts stuff within this script.
 export PATH=$PATH:/opt/local/bin
-export PATH=$PATH:~/bin:/usr/local/bin
+export PATH=$PATH:/opt/bin
+export PATH=$PATH:$HOME/bin:/usr/local/bin
 
 
 

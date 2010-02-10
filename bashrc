@@ -13,6 +13,7 @@ export PATH=$PATH:$HOME/bin:/usr/local/bin
 
 
 set -o vi
+export RUBYOPT=rubygems
 
 # TODO: figure out a way of keeping OSX and Linux versions of this
 # file separated...

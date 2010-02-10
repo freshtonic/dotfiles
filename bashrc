@@ -10,7 +10,10 @@ export PATH=$PATH:/opt/local/bin
 export PATH=$PATH:/opt/bin
 export PATH=$PATH:$HOME/bin:/usr/local/bin
 
-
+# GitX stuff (Mac only)
+if [ `uname` == "Darwin" ]; then
+    export PATH=$PATH:/Applications/GitX.app/Contents/Resources/
+fi
 
 set -o vi
 export RUBYOPT=rubygems

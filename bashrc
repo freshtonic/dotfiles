@@ -15,6 +15,9 @@ if [ `uname` == "Darwin" ]; then
     export PATH=$PATH:/Applications/GitX.app/Contents/Resources/
 fi
 
+# MySQL stuff
+export PATH=/opt/local/lib/mysql5/bin:$PATH
+
 set -o vi
 export RUBYOPT=rubygems
 

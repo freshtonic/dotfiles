@@ -2,7 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-source ~/.bash_aliases
 export PATH=$PATH:/var/lib/gems/1.8/bin
 export PATH=$PATH:$HOME/.gem/ruby/1.8/bin
 # Allows us to execute MacPorts stuff within this script.

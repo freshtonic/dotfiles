@@ -10,6 +10,8 @@ export PATH=$PATH:/opt/local/bin
 export PATH=$PATH:/opt/bin
 export PATH=$PATH:$HOME/bin:/usr/local/bin
 
+export LEXER_DIR=~/lexer
+
 # GitX stuff (Mac only)
 if [ `uname` == "Darwin" ]; then
     export PATH=$PATH:/Applications/GitX.app/Contents/Resources/

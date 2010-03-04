@@ -1,0 +1,41 @@
+[user]
+	name = James Sadler
+	email = freshtonic@gmail.com
+[merge]
+    tool = meld
+[diff]
+    renames = copies
+[color]
+    branch = always
+    diff = always
+    status = true
+    ui = true
+[web]
+    browser = firefox
+[alias]
+    f = fetch -v
+    co = checkout
+    s = status
+    st = stash
+    c = commit
+    d = diff
+    a = add
+    b = branch
+    l = log
+    m = merge
+    p = pull
+    rb = rebase
+    r = reset
+    sh = show
+    t = tag
+    w = whatchanged
+    cp = cherry-pick
+[giggle]
+	compact-mode = false
+	main-window-geometry = 1600x1129+0+45
+[instaweb]
+	local = true
+	httpd = apache2 -f
+	port = 4321
+	browser = firefox
+	modulepath = /usr/lib/apache2/modules

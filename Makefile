@@ -1,6 +1,9 @@
 
 HOME=$(shell echo $$HOME)
 
+$(HOME)/.git-completion.bash: git-completion.bash
+	ln -f -s $(shell pwd)/git-completion.bash $@
+
 $(HOME)/.gitconfig: gitconfig
 	ln -f -s $(shell pwd)/gitconfig $@
 
@@ -28,7 +31,8 @@ $(HOME)/.irbrc: irbrc
 $(HOME)/bin/gitvi: bin/gitvi
 	cp bin/gitvi $(HOME)/bin/
 
-install: $(HOME)/.gitconfig \
+install: $(HOME)/.git-completion.bash \
+	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
 	$(HOME)/.vimrc \
 	$(HOME)/.gvimrc \
@@ -38,7 +42,8 @@ install: $(HOME)/.gitconfig \
 	$(HOME)/.Xmodmap
 
 clean:
-	rm -f $(HOME)/.gitconfig \
+	rm -f $(HOME)/.git-completion.bash \
+	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
 	$(HOME)/.gvimrc \
         $(HOME)/.vimrc \

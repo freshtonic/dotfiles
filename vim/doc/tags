@@ -69,6 +69,7 @@
 :TlistUnlock	taglist.txt	/*:TlistUnlock*
 :TlistUpdate	taglist.txt	/*:TlistUpdate*
 AND	dbext.txt	/*AND*
+ConqueTerm	conque_term.txt	/*ConqueTerm*
 DBI	dbext.txt	/*DBI*
 NERDTree	NERD_tree.txt	/*NERDTree*
 NERDTree-?	NERD_tree.txt	/*NERDTree-?*
@@ -156,6 +157,13 @@ camelcasemotion-usage	camelcasemotion.txt	/*camelcasemotion-usage*
 camelcasemotion.txt	camelcasemotion.txt	/*camelcasemotion.txt*
 camelcasemotion.vim	camelcasemotion.txt	/*camelcasemotion.vim*
 config/rails.vim	rails.txt	/*config\/rails.vim*
+conque_term-bugs	conque_term.txt	/*conque_term-bugs*
+conque_term-changelog	conque_term.txt	/*conque_term-changelog*
+conque_term-contribute	conque_term.txt	/*conque_term-contribute*
+conque_term-requirements	conque_term.txt	/*conque_term-requirements*
+conque_term-settings	conque_term.txt	/*conque_term-settings*
+conque_term-todo	conque_term.txt	/*conque_term-todo*
+conque_term-usage	conque_term.txt	/*conque_term-usage*
 cs	surround.txt	/*cs*
 database-extension	dbext.txt	/*database-extension*
 db2	dbext.txt	/*db2*

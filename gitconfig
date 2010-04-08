@@ -13,6 +13,7 @@
 [web]
     browser = firefox
 [alias]
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     f = fetch -v
     co = checkout
     s = status

@@ -18,10 +18,7 @@ if [ `uname` == "Darwin" ]; then
     # unix2003 is the default in Terminal.app but not in iTerm it seems.
     export COMMAND_MODE=unix2003
 
-    alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
-    alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-    alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
-    export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
+    export EDITOR=$(which vim)
 fi
 
 # MySQL stuff

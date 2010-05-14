@@ -30,6 +30,7 @@
     t = tag
     w = whatchanged
     cp = cherry-pick
+    bp = buildpackage
 [giggle]
 	compact-mode = false
 	main-window-geometry = 1600x1129+0+45

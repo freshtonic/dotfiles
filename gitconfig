@@ -31,6 +31,8 @@
     w = whatchanged
     cp = cherry-pick
     bp = buildpackage
+    gh = !sh -c 'git clone git://github.com/$1/$2.git' - 
+
 [giggle]
 	compact-mode = false
 	main-window-geometry = 1600x1129+0+45

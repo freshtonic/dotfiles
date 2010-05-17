@@ -11,6 +11,10 @@ export PATH=$PATH:$HOME/bin:/usr/local/bin
 
 export LEXER_DIR=~/lexer
 
+DEBEMAIL=freshtonic@gmail.com
+DEBFULLNAME="James Sadler"
+export DEBEMAIL DEBFULLNAME
+
 if [ `uname` == "Darwin" ]; then
     export PATH=$PATH:/Applications/GitX.app/Contents/Resources/
     # The following fixes iTerm issues.

@@ -16,13 +16,13 @@ DEBEMAIL=freshtonic@gmail.com
 DEBFULLNAME="James Sadler"
 export DEBEMAIL DEBFULLNAME
 
+export EDITOR=$(which vim)
+
 if [ `uname` == "Darwin" ]; then
     export PATH=$PATH:/Applications/GitX.app/Contents/Resources/
     # The following fixes iTerm issues.
     # unix2003 is the default in Terminal.app but not in iTerm it seems.
     export COMMAND_MODE=unix2003
-
-    export EDITOR=$(which vim)
 fi
 
 # MySQL stuff

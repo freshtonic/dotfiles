@@ -46,7 +46,7 @@ set shiftround                  "sr:    rounds indent to a multiple of shiftwidt
 set nojoinspaces                "nojs:  prevents inserting two spaces after punctuation on a join (it's not 1990 anymore)
 set lazyredraw                  "lz:    will not redraw the screen while running macros (goes faster)
 set pastetoggle=<F5>            "pt:    useful so auto-indenting doesn't mess up code when pasting
-
+set nohlsearch "don't highlight matching brace - too distracting
 " Fix for legacy vi inconsistency
 map Y y$
 
@@ -126,12 +126,6 @@ set statusline=(%{GitBranch()})\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 " Make sure the filename stays after scrolling
 set laststatus=2
 
-" Removes trailing spaces
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
-:endfunction
-
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
@@ -151,3 +145,6 @@ set noerrorbells
 set visualbell
 set t_vb=
 
+" On OSX
+" vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
+" nmap <C-v> :call setreg("\"",system("pbpaste"))<CR>p

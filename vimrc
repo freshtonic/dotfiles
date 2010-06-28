@@ -145,6 +145,3 @@ set noerrorbells
 set visualbell
 set t_vb=
 
-" On OSX
-" vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
-" nmap <C-v> :call setreg("\"",system("pbpaste"))<CR>p

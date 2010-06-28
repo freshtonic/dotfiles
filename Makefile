@@ -28,6 +28,9 @@ $(HOME)/.irbrc: irbrc
 $(HOME)/bin/gitvi: bin/gitvi
 	cp bin/gitvi $(HOME)/bin/
 
+$(HOME)/bin/git2cl: bin/git2cl
+	cp bin/git2cl $(HOME)/bin/
+
 install: $(HOME)/.git-completion.bash \
 	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
@@ -36,6 +39,7 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/.bashrc \
 	$(HOME)/.irbrc \
 	$(HOME)/bin/gitvi \
+	$(HOME)/bin/git2cl \
 	$(HOME)/.Xmodmap
 
 clean:

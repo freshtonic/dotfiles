@@ -5,22 +5,24 @@
 export PATH=$PATH:/var/lib/gems/1.8/bin
 export PATH=$PATH:$HOME/.gem/ruby/1.8/bin
 export PATH=$PATH:/usr/sbin
-export PATH=$PATH:/opt/local/bin
-export PATH=$PATH:/opt/bin
+export PATH=/opt/local/bin:$PATH
+export PATH=/opt/bin:$PATH
 export PATH=$PATH:$HOME/bin:/usr/local/bin
 
 export LEXER_DIR=~/lexer
+export ERL_LIBS=~/lexer/riak/apps/riak/ebin
+
+DEBEMAIL=freshtonic@gmail.com
+DEBFULLNAME="James Sadler"
+export DEBEMAIL DEBFULLNAME
+
+export EDITOR=$(which vim)
 
 if [ `uname` == "Darwin" ]; then
     export PATH=$PATH:/Applications/GitX.app/Contents/Resources/
     # The following fixes iTerm issues.
     # unix2003 is the default in Terminal.app but not in iTerm it seems.
     export COMMAND_MODE=unix2003
-
-    alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
-    alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-    alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
-    export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
 
 # MySQL stuff

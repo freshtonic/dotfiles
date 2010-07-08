@@ -16,6 +16,9 @@ $(HOME)/.vimrc: vimrc
 $(HOME)/.gvimrc: vimrc
 	ln -f -s $(shell pwd)/gvimrc $@
 
+$(HOME)/.zshrc: zshrc 
+	ln -f -s $(shell pwd)/zshrc $@
+
 $(HOME)/.bashrc: bashrc
 	ln -f -s $(shell pwd)/bashrc $@
 
@@ -37,6 +40,7 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/.vimrc \
 	$(HOME)/.gvimrc \
 	$(HOME)/.bashrc \
+	$(HOME)/.zshrc \
 	$(HOME)/.irbrc \
 	$(HOME)/bin/gitvi \
 	$(HOME)/bin/git2cl \
@@ -49,6 +53,7 @@ clean:
 	$(HOME)/.gvimrc \
         $(HOME)/.vimrc \
         $(HOME)/.bashrc \
+        $(HOME)/.zshrc \
         $(HOME)/.irbrc \
         $(HOME)/bin/gitvi \
 	$(HOME)/.Xmodmap

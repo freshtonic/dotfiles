@@ -29,10 +29,11 @@
     r = reset
     sh = show
     t = tag
-    w = whatchanged
+    w = whatchanged -p
     cp = cherry-pick
     bp = buildpackage
-    gh = !sh -c 'git clone git://github.com/$1/$2.git' - 
+    gh = !sh -c 'git clone git://github.com/$1/$2.git' -
+    up = pull --rebase
 
 [giggle]
 	compact-mode = false

@@ -30,7 +30,6 @@ fi
 export PATH=/opt/local/lib/mysql5/bin:$PATH
 
 set -o vi
-export RUBYOPT=rubygems
 
 . ~/.git-completion.bash
 

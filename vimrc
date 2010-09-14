@@ -36,12 +36,12 @@ set cindent                     "cin:   enables the second-most configurable ind
 set cinoptions=l1,c4,(s,U1,w1,m1,j1
 set cinwords=if,elif,else,for,while,try,except,finally,def,class
 
-set autoindent                  "ai:    auto indent
-set expandtab                   "et:    uses spaces instead of tab characters
-set smarttab                    "sta:   helps with backspacing because of expandtab
-set softtabstop=4               "ts:    number of spaces that a tab counts for
-set shiftwidth=4                "sw:    number of spaces to use for autoindent
-set shiftround                  "sr:    rounds indent to a multiple of shiftwidth
+"set autoindent                  "ai:    auto indent
+"set expandtab                   "et:    uses spaces instead of tab characters
+"set smarttab                    "sta:   helps with backspacing because of expandtab
+"set softtabstop=4               "ts:    number of spaces that a tab counts for
+"set shiftwidth=4                "sw:    number of spaces to use for autoindent
+"set shiftround                  "sr:    rounds indent to a multiple of shiftwidth
 
 set nojoinspaces                "nojs:  prevents inserting two spaces after punctuation on a join (it's not 1990 anymore)
 set lazyredraw                  "lz:    will not redraw the screen while running macros (goes faster)
@@ -87,18 +87,6 @@ map <F1> :ls<CR>:b<Space>
 noremap <silent> ,sq :new +:read\ !svn\ diff\ "#"<CR>:exe Scratch()<CR>:set filetype=diff<CR>:set nofoldenable<CR>
 noremap <silent> ,sd :tabnew %<CR> :vnew +:read\ !svn\ cat\ "#"<CR>:exe Scratch()<CR>:diffthis<CR><C-W>w :diffthis<CR>:set syntax=off<CR>
 
-" Python :make
-autocmd BufRead *.py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
-autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-au FileType python set keywordprg=pydoc
-
-function! Scratch()
-    set buftype=nofile
-    set bufhidden=delete
-    set noswapfile
-endfunction
-noremap <silent> ,s :exe Scratch()<CR>
-
 nnoremap <silent> <C-n> :tabnext<CR>
 nnoremap <silent> <C-p> :tabprevious<CR>
 set mouse=a
@@ -115,6 +103,8 @@ augroup myfiletypes
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
   autocmd FileType python set ai ts=4 sts=4 et sw=4
+  autocmd FileType XML set ai ts=8 sw=8 sts=8
+  autocmd FileType XSL set ai ts=8 sw=8 sts=8
 augroup END
 
 au! BufRead,BufNewFile *.haml setfiletype haml
@@ -134,7 +124,6 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 
-autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " Disable the toolbar if running MacVim
 if has("gui_running")

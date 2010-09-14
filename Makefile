@@ -2,34 +2,34 @@
 HOME=$(shell echo $$HOME)
 
 $(HOME)/.git-completion.bash: git-completion.bash
-	ln -f -s $(shell pwd)/git-completion.bash $@
+	cp $(shell pwd)/git-completion.bash $@
 
 $(HOME)/.gitconfig: gitconfig
-	ln -f -s $(shell pwd)/gitconfig $@
+	cp $(shell pwd)/gitconfig $@
 
 $(HOME)/.vim: vim
-	ln -f -s $(shell pwd)/vim $@
+	cp -R $(shell pwd)/vim $@
 
 $(HOME)/.vimrc: vimrc
-	ln -f -s $(shell pwd)/vimrc $@
+	cp $(shell pwd)/vimrc $@
 
 $(HOME)/.gvimrc: vimrc
-	ln -f -s $(shell pwd)/gvimrc $@
+	cp $(shell pwd)/gvimrc $@
 
 $(HOME)/.zshrc: zshrc 
-	ln -f -s $(shell pwd)/zshrc $@
+	cp $(shell pwd)/zshrc $@
 
 $(HOME)/.bashrc: bashrc
-	ln -f -s $(shell pwd)/bashrc $@
+	cp $(shell pwd)/bashrc $@
 
 $(HOME)/.Xmodmap: Xmodmap
-	ln -f -s $(shell pwd)/Xmodmap $@
+	cp $(shell pwd)/Xmodmap $@
 
 $(HOME)/.irbrc: irbrc 
-	ln -f -s $(shell pwd)/irbrc $@
+	cp $(shell pwd)/irbrc $@
 
 $(HOME)/.gemrc: gemrc 
-	ln -f -s $(shell pwd)/gemrc $@
+	cp $(shell pwd)/gemrc $@
 
 $(HOME)/bin/gitvi: bin/gitvi
 	cp bin/gitvi $(HOME)/bin/
@@ -51,7 +51,7 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/.Xmodmap
 
 clean:
-	rm -f $(HOME)/.git-completion.bash \
+	rm -fr $(HOME)/.git-completion.bash \
 	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
 	$(HOME)/.gvimrc \

@@ -1,13 +1,13 @@
-" This must be first, because it changes other options as side effect
-set nocompatible
 
 " BEGIN: load modules with Tim Pope's vim-pathogen
 " see: http://www.vim.org/scripts/script.php?script_id=2332 for details
 filetype off
-filetype plugin indent on
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 " END: load modules with Tim Pope's vim-pathogen
+
+" This must be first, because it changes other options as side effect
+set nocompatible
 
 " set filetype stuff to on
 filetype on

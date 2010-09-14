@@ -89,3 +89,82 @@ nmap Q gqap
 " Save stuff owned by root when you forgot to open as root
 cmap w!! w !sudo tee % >/dev/null
 
+" Unhighlight search results
+nnoremap ; :set invhlsearch<CR>
+
+set dir=/tmp
+
+set incsearch                   "is:    automatically begins searching as you type
+set hlsearch                    "hls:   highlights search results
+" Use ctrl-n to unhighlight search results in normal mode:
+set backspace=indent,eol,start  "bs:    allows you to backspace over the listed character types
+set linebreak                   "lbr:   causes vim to not wrap text in the middle of a word
+set nowrap                        "nowrap:  don't wraps lines by default
+
+set showmode                    "smd:   shows current vi mode in lower left
+set showcmd                     "sc:    shows typed commands
+set cmdheight=2                 "ch:    make a little more room for error messages
+set sidescroll=2                "ss:    only scroll horizontally little by little
+set scrolloff=1                 "so:    places a line between the current line and the screen edge
+set sidescrolloff=2             "siso:  places a couple columns between the current column and the screen edge
+set laststatus=2                "ls:    makes the status bar always visible
+set ttyfast                     "tf:    improves redrawing for newer computers
+
+set nojoinspaces                "nojs:  prevents inserting two spaces after punctuation on a join (it's not 1990 anymore)
+set lazyredraw                  "lz:    will not redraw the screen while running macros (goes faster)
+
+" Fix for legacy vi inconsistency
+map Y y$
+
+set background=dark 
+set t_Co=256
+colorscheme ir_black
+
+set switchbuf=useopen           "swb:   Jumps to first window or tab that contains specified buffer instead of duplicating an open window
+set showtabline=1               "stal:  Display the tabbar if there are multiple tabs. Use :tab ball or invoke Vim with -p
+
+set splitright                  "spr:   puts new vsplit windows to the right of the current
+set splitbelow                  "sb:    puts new split windows to the bottom of the current
+
+set winminheight=0              "wmh:   the minimal line height of any non-current window
+set winminwidth=0               "wmw:   the minimal column width of any non-current window
+
+nnoremap <silent> <C-n> :tabnext<CR>
+nnoremap <silent> <C-p> :tabprevious<CR>
+
+set tabpagemax=30
+
+augroup myfiletypes
+  " Clear old autocmds in group
+  autocmd!
+  " autoindent with two spaces, always expand tabs
+  autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+  autocmd FileType python set ai ts=4 sts=4 et sw=4
+  autocmd FileType XML set ai ts=8 sw=8 sts=8
+  autocmd FileType XSL set ai ts=8 sw=8 sts=8
+augroup END
+
+" Display the filename in the statusline
+set statusline=(%{GitBranch()})\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" Make sure the filename stays after scrolling
+set laststatus=2
+
+"ruby
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+
+"improve autocomplete menu color
+highlight Pmenu ctermbg=238 gui=bold
+
+" Disable the toolbar if running MacVim
+if has("gui_running")
+    set guioptions=egmrt
+endif
+
+" Stop that fucking beep!
+set noerrorbells
+set visualbell
+set t_vb=
+

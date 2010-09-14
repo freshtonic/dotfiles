@@ -1,3 +1,0 @@
-camelcasemotion.vba: call delete('/home/jsadler/.vim/autoload/camelcasemotion.vim')|call delete('/home/jsadler/.vim/plugin/camelcasemotion.vim')|call delete('/home/jsadler/.vim/doc/camelcasemotion.txt')
-markdown-1.0.3.vba: call delete('/Users/jsadler/.vim/ftdetect/markdown.vim')|call delete('/Users/jsadler/.vim/snippets/markdown.snippets')|call delete('/Users/jsadler/.vim/syntax/markdown.vim')
-conque_term_1.0.vba: call delete('/Users/jsadler/.vim/autoload/conque_term.vim')|call delete('/Users/jsadler/.vim/doc/conque_term.txt')|call delete('/Users/jsadler/.vim/plugin/conque_term.vim')|call delete('/Users/jsadler/.vim/syntax/conque_term.vim')

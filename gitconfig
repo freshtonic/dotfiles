@@ -14,6 +14,7 @@
     browser = firefox
 [alias]
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    compactlog = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
     f = fetch -v
     co = checkout
     s = status

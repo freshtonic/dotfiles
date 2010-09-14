@@ -145,7 +145,7 @@ augroup myfiletypes
 augroup END
 
 " Display the filename in the statusline
-set statusline=(%{GitBranch()})\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set statusline=%{fugitive#statusline()}\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 " Make sure the filename stays after scrolling
 set laststatus=2
 

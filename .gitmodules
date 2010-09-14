@@ -1,0 +1,33 @@
+[submodule "tpope/vim-cucumber"]
+	path = tpope/vim-cucumber
+	url = git://github.com/tpope/vim-cucumber.git
+[submodule "tpope/vim-fugitive"]
+	path = tpope/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "tpope/vim-haml"]
+	path = tpope/vim-haml
+	url = git://github.com/tpope/vim-haml.git
+[submodule "tpope/vim-liquid"]
+	path = tpope/vim-liquid
+	url = git://github.com/tpope/vim-liquid.git
+[submodule "tpope/vim-markdown"]
+	path = tpope/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
+[submodule "tpope/vim-ragtag"]
+	path = tpope/vim-ragtag
+	url = git://github.com/tpope/vim-ragtag.git
+[submodule "tpope/vim-rails"]
+	path = tpope/vim-rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule "tpope/vim-rake"]
+	path = tpope/vim-rake
+	url = git://github.com/tpope/vim-rake.git
+[submodule "tpope/vim-speeddating"]
+	path = tpope/vim-speeddating
+	url = git://github.com/tpope/vim-speeddating.git
+[submodule "tpope/vim-surround"]
+	path = tpope/vim-surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "tpope/vim-unimpaired"]
+	path = tpope/vim-unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git

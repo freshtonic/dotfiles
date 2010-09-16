@@ -42,6 +42,7 @@ DEBEMAIL=freshtonic@gmail.com
 DEBFULLNAME="James Sadler"
 export DEBEMAIL DEBFULLNAME
 export EDITOR=$(which vim)
+alias vi=vim
 
 if [ `uname` = Darwin ]; then
     export PATH=$PATH:/Applications/GitX.app/Contents/Resources/

@@ -2,46 +2,36 @@
 	name = James Sadler
 	email = freshtonic@gmail.com
 [merge]
-    tool = meld
+	tool = meld
 [diff]
-    renames = copies
+	renames = copies
 [color]
-    branch = always
-    diff = always
-    status = true
-    ui = true
+	branch = always
+	diff = always
+	status = true
+	ui = true
 [web]
-    browser = firefox
-[alias]
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    clg = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
-    f = fetch -v
-    co = checkout
-    s = status
-    st = stash
-    c = commit
-    d = diff
-    a = add
-    b = branch
-    l = log
-    m = merge
-    p = pull
-    rb = rebase
-    r = reset
-    sh = show
-    t = tag
-    w = whatchanged -p
-    cp = cherry-pick
-    bp = buildpackage
-    gh = !sh -c 'git clone git://github.com/$1/$2.git' -
-    up = pull --rebase
-
-[giggle]
-	compact-mode = false
-	main-window-geometry = 1600x1129+0+45
-[instaweb]
-	local = true
-	httpd = apache2 -f
-	port = 4321
 	browser = firefox
-	modulepath = /usr/lib/apache2/modules
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	clg = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
+	f = fetch -v
+	co = checkout
+	s = status
+	st = stash
+	c = commit
+	d = diff
+	a = add
+	b = branch
+	l = log
+	m = merge
+	p = pull
+	rb = rebase
+	r = reset
+	sh = show
+	t = tag
+	w = whatchanged -p
+	cp = cherry-pick
+	bp = buildpackage
+	gh = !sh -c 'git clone git://github.com/$1/$2.git' -
+	pr = pull --rebase

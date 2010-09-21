@@ -60,7 +60,7 @@ if &t_Co > 2 || has("gui_running")
    syntax on
 endif
 
-set list
+" set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 autocmd filetype html,xml set listchars-=tab:>.

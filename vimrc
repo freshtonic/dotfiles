@@ -140,8 +140,8 @@ augroup myfiletypes
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
   autocmd FileType python set ai ts=4 sts=4 et sw=4
-  autocmd FileType XML set ai ts=8 sw=8 sts=8
-  autocmd FileType XSL set ai ts=8 sw=8 sts=8
+  " autocmd FileType xml set ai ts=8 sw=8 sts=8
+  " autocmd FileType xslt set ai ts=2 sw=8 sts=8
 augroup END
 
 " Display the filename in the statusline

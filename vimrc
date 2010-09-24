@@ -168,3 +168,6 @@ set noerrorbells
 set visualbell
 set t_vb=
 
+" Key mapping to start FuzzyFinder
+nnoremap <silent> <C-f> :FuzzyFinderFile<CR>
+

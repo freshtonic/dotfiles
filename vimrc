@@ -171,3 +171,11 @@ set t_vb=
 " Key mapping to start FuzzyFinder
 nnoremap <silent> <C-f> :FuzzyFinderFile<CR>
 
+function! PrettifyXml()
+	%s/></>\r</g
+	normal gg=G
+endfunction
+
+command! -nargs=0 XmlPretty :call PrettifyXml()
+
+nnoremap <silent> <C-m> :XmlPretty<CR>

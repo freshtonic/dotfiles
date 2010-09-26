@@ -131,13 +131,11 @@ set winminheight=0              "wmh:   the minimal line height of any non-curre
 set winminwidth=0               "wmw:   the minimal column width of any non-current window
 
 " Tab navigation
-nnoremap <silent> <C-n> :tabnext<CR>
-nnoremap <silent> <C-p> :tabprevious<CR>
+nnoremap <silent> <leader>n :tabnext<CR>
+nnoremap <silent> <leader>p :tabprevious<CR>
 
 " YankRing keys
 nnoremap <silent> <leader>yrs :YRShow<CR>
-nnoremap <silent> <leader>yrn :YRReplace '1', 'p'<CR>
-nnoremap <silent> <leader>yrp :YRReplace '-1', 'P'<CR>
 
 set tabpagemax=30
 

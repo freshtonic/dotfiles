@@ -52,3 +52,6 @@
 [submodule "vim/bundle/yankring"]
 	path = vim/bundle/yankring
 	url = git://github.com/chrismetcalf/vim-yankring.git
+[submodule "vim/bundle/NERD_Commenter"]
+	path = vim/bundle/NERD_Commenter
+	url = git://github.com/scrooloose/nerdcommenter.git

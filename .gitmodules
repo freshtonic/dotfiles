@@ -49,3 +49,6 @@
 [submodule "vim/bundle/camelcasemotion"]
 	path = vim/bundle/camelcasemotion
 	url = git://github.com/ujihisa/camelcasemotion.git
+[submodule "vim/bundle/yankring"]
+	path = vim/bundle/yankring
+	url = git://github.com/chrismetcalf/vim-yankring.git

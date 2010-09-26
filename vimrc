@@ -177,6 +177,6 @@ function! PrettifyXml()
 	normal gg=G
 endfunction
 
-command! -nargs=0 XmlPretty :call PrettifyXml()
+nmap <silent> <leader>xp :call PrettifyXml()<CR>
 
-nnoremap <silent> <C-m> :XmlPretty<CR>
+

@@ -12,8 +12,8 @@ plugins=(ruby rails git)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$PATH:$HOME/bin:/usr/local/bin
-export PATH=$PATH:/usr/sbin
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/sbin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/bin:$PATH
 

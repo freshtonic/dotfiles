@@ -2,8 +2,8 @@
 " BEGIN: load modules with Tim Pope's vim-pathogen
 " see: http://www.vim.org/scripts/script.php?script_id=2332 for details
 filetype off
-call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 " END: load modules with Tim Pope's vim-pathogen
 
 " This must be first, because it changes other options as side effect

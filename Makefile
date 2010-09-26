@@ -10,6 +10,9 @@ $(HOME)/.gitconfig: gitconfig
 $(HOME)/.vim: vim
 	cp -R $(shell pwd)/vim $@
 
+$(HOME)/.vim/autoload/pathogen.vim: vim-pathogen/autoload/pathogen.vim
+	cp -R $(shell pwd)/vim-pathogen/autoload/pathogen.vim $@
+
 $(HOME)/.vimrc: vimrc
 	cp $(shell pwd)/vimrc $@
 
@@ -43,6 +46,7 @@ $(HOME)/bin/git2cl: bin/git2cl
 install: $(HOME)/.git-completion.bash \
 	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
+	$(HOME)/.vim/autoload/pathogen.vim \
 	$(HOME)/.vimrc \
 	$(HOME)/.gvimrc \
 	$(HOME)/.bashrc \

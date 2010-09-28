@@ -10,11 +10,10 @@
 	diff = always
 	status = true
 	ui = true
-[web]
-	browser = firefox
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	clg = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
+	flg = log --name-status --pretty=oneline
 	f = fetch -v
 	co = checkout
 	s = status
@@ -25,13 +24,14 @@
 	b = branch
 	l = log
 	m = merge
-	p = pull
+	p = push
 	rb = rebase
 	r = reset
 	sh = show
 	t = tag
 	w = whatchanged -p
 	cp = cherry-pick
+	ch = cherry
 	bp = buildpackage
 	gh = !sh -c 'git clone git://github.com/$1/$2.git' -
 	pr = pull --rebase

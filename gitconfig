@@ -6,8 +6,8 @@
 [diff]
 	renames = copies
 [color]
-	branch = always
-	diff = always
+	branch = auto
+	diff = auto
 	status = true
 	ui = true
 [alias]

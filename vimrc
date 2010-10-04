@@ -21,6 +21,9 @@ let mapleader=","
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
+" This is a *really* cool feature. Great for showing the count of
+" lines when you want to do a 12dd for example.
+set relativenumber 
 
 " lets us e: another buffer without being forced to save or undo existing
 set hidden

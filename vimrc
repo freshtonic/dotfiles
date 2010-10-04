@@ -183,4 +183,29 @@ endfunction
 
 nmap <silent> <leader>xp :call PrettifyXml()<CR>
 
+function! PreviewMKD()
+" TODO: can't get bluecloth to load within vim, so write .md to temp
+" file, and launch an rvm ruby to do the bluecloth stuff and open
+" the HTML file.
+ruby << EOF
+	require 'tempfile'
+	t = ""
+	VIM::Buffer.current.count.times {|i| t += "#{VIM::Buffer.current[i + 1]}\n"}
+	Tempfile.open(VIM::Buffer.current.name.gsub(/^.+\//, ""), '/tmp') do |f|
+		f.write(t)
+		f.flush
+		File.open("/tmp/#{f.path.gsub(/^.+\//,"")}-markdown-preview.html", 'w') do |out|
+			out.write("<html><head><link rel='stylesheet' type='text/css'
+			href='file:///#{ENV['HOME']}/.vim/markdown-preview.css'</head><body>")
+			body = `bluecloth -f #{f.path}`
+			out.write(body)
+			out.write('</body></html>')
+			out.flush
+			system("open #{out.path}")
+		end
+	end
+EOF
+endfunction
+
+map <Leader>mp :call PreviewMKD()<CR>
 

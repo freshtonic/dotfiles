@@ -55,3 +55,6 @@
 [submodule "vim/bundle/NERD_Commenter"]
 	path = vim/bundle/NERD_Commenter
 	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git

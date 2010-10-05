@@ -153,7 +153,7 @@ augroup END
 let g:syntastic_enable_signs=1
 
 " Display the filename in the statusline
-set statusline=%{fugitive#statusline()}\ %<%f\ %y\ %#warningmsg#\ %{SyntasticStatuslineFlag()}\ %*\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set statusline=%{fugitive#statusline()}\ %<%f\ %y\ %#warningmsg#%{SyntasticStatuslineFlag()}%*\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 " Make sure the filename stays after scrolling
 set laststatus=2
 

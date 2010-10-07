@@ -155,6 +155,12 @@ border-left : 1px dotted #666;
 font : 1em 'andale mono', 'lucida console', monospace;
 line-height : 1.5; }
 
+h1 code,h2 code,h3 code,h4 code,h5 code,h6 code,a code,p code {
+	display: inline;
+	margin: 0;
+	border: none;
+}
+
 pre { 
 white-space : pre; }
 

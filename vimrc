@@ -179,12 +179,7 @@ set t_vb=
 " Key mapping to start FuzzyFinder
 nnoremap <silent> <C-f> :FuzzyFinderFile<CR>
 
-function! PrettifyXml()
-	%s/></>\r</g
-	normal gg=G
-endfunction
-
-nmap <silent> <leader>xp :call PrettifyXml()<CR>
+nmap <silent> <leader>xp :%!$HOME/bin/xmlpp -tcen 2> /dev/null<CR>
 
 function! PreviewMKD()
 " TODO: can't get bluecloth to load within vim, so write .md to temp

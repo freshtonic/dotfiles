@@ -43,6 +43,12 @@ $(HOME)/bin/gitvi: bin/gitvi
 $(HOME)/bin/git2cl: bin/git2cl
 	cp bin/git2cl $(HOME)/bin/
 
+$(HOME)/bin/xmlpp: bin/xmlpp
+	cp bin/xmlpp $(HOME)/bin/
+
+$(HOME)/bin/xmldiff: bin/xmldiff
+	cp bin/xmldiff $(HOME)/bin/
+
 install: $(HOME)/.git-completion.bash \
 	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
@@ -56,6 +62,8 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/.gemrc \
 	$(HOME)/bin/gitvi \
 	$(HOME)/bin/git2cl \
+	$(HOME)/bin/xmlpp \
+	$(HOME)/bin/xmldiff \
 	$(HOME)/.Xmodmap
 
 clean:
@@ -70,5 +78,7 @@ clean:
         $(HOME)/.irbrc \
         $(HOME)/.gemrc \
         $(HOME)/bin/gitvi \
+        $(HOME)/bin/xmlpp \
+        $(HOME)/bin/xmldiff \
 	$(HOME)/.Xmodmap
 

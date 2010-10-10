@@ -2,7 +2,7 @@
 	name = James Sadler
 	email = freshtonic@gmail.com
 [merge]
-	tool = meld
+	tool = vimdiff
 [diff]
 	renames = copies
 [color]
@@ -34,4 +34,4 @@
 	ch = cherry
 	bp = buildpackage
 	gh = !sh -c 'git clone git://github.com/$1/$2.git' -
-	pr = pull --rebase
+	up = pull --rebase

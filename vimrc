@@ -52,6 +52,10 @@ if has('autocmd')
 	autocmd filetype python set expandtab
 endif
 
+if has('gui_macvim')
+  set gfn=Monaco:h13
+endif
+
 if &t_Co >= 256 || has("gui_running")
    colorscheme ir_black
 endif

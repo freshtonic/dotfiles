@@ -182,6 +182,9 @@ nnoremap <silent> <C-f> :FuzzyFinderFile<CR>
 
 nmap <silent> <leader>xp :%!$HOME/bin/xmlpp -tcen 2> /dev/null<CR>
 
+" TODO: the following line requires some escaping
+" nmap <silent> <leader>ap :%!/Users/jsadler/.rvm/rubies/ruby-1.9.2-p0/bin/ruby -e "require 'ap'; STDIN.each_line{ |l| ap eval(l) }"
+
 function! PreviewMKD()
 " TODO: can't get bluecloth to load within vim, so write .md to temp
 " file, and launch an rvm ruby to do the bluecloth stuff and open

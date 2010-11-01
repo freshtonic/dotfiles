@@ -2,7 +2,7 @@
 	name = James Sadler
 	email = freshtonic@gmail.com
 [merge]
-	tool = vimdiff
+	tool = p4merge
 [diff]
 	renames = copies
 [color]

@@ -53,7 +53,7 @@ if has('autocmd')
 endif
 
 if has('gui_macvim')
-  set gfn=Monaco:h12
+  set gfn=Monaco:h10
 endif
 
 if &t_Co >= 256 || has("gui_running")

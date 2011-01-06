@@ -212,3 +212,10 @@ endfunction
 
 map <Leader>mp :call PreviewMKD()<CR>
 
+function! NewScratchBuffer()
+	set buftype=nofile
+	set bufhidden=hide
+	setlocal noswapfile
+endfunction
+
+map <Leader>sb :call NewScratchBuffer()<CR>

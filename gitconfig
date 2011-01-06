@@ -4,6 +4,8 @@
 [merge]
 	tool = p4merge
 [diff]
+	tool = p4merge
+[diff]
 	renames = copies
 [color]
 	branch = auto
@@ -13,7 +15,8 @@
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	clg = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
-	flg = log --name-status --pretty=oneline
+	slg = log --name-status --pretty=oneline
+	flg = log --graph --pretty=format:'%Cblue%h%d%Creset %ar %Cgreen%an%Creset %s'
 	f = fetch -v
 	co = checkout
 	s = status
@@ -35,3 +38,5 @@
 	bp = buildpackage
 	gh = !sh -c 'git clone git://github.com/$1/$2.git' -
 	up = pull --rebase
+	reopen = !sh -c 'mvim -p $(git d --name-only HEAD~1..HEAD)' -
+	dn = diff --name-only

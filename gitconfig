@@ -18,6 +18,7 @@
 	slg = log --name-status --pretty=oneline
 	flg = log --graph --pretty=format:'%Cblue%h%d%Creset %ar %Cgreen%an%Creset %s'
 	f = fetch -v
+	ff = merge --ff-only
 	co = checkout
 	s = status
 	st = stash

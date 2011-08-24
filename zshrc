@@ -14,9 +14,6 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/sbin:$PATH
-export PATH=/opt/local/bin:$PATH
-export PATH=/opt/bin:$PATH
-export PATH=/Applications/p4merge.app/Contents/MacOS:$PATH
 
 #
 #zle_highlight=(none)

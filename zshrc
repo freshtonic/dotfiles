@@ -45,7 +45,8 @@ precmd () { vcs_info }
 DEBEMAIL=freshtonic@gmail.com
 DEBFULLNAME="James Sadler"
 export DEBEMAIL DEBFULLNAME
-export EDITOR=$(which vim)
+export EDITOR=$(which mvim)
+export GIT_EDITOR="$(which vim)"
 alias vi=vim
 
 if [ `uname` = Darwin ]; then

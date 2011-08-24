@@ -31,9 +31,6 @@ $(HOME)/.bashrc: bashrc
 $(HOME)/.Xmodmap: Xmodmap
 	cp $(shell pwd)/Xmodmap $@
 
-$(HOME)/.irbrc: irbrc 
-	cp $(shell pwd)/irbrc $@
-
 $(HOME)/.gemrc: gemrc 
 	cp $(shell pwd)/gemrc $@
 
@@ -58,7 +55,6 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/.bashrc \
 	$(HOME)/.oh-my-zsh \
 	$(HOME)/.zshrc \
-	$(HOME)/.irbrc \
 	$(HOME)/.gemrc \
 	$(HOME)/bin/gitvi \
 	$(HOME)/bin/git2cl \
@@ -75,7 +71,6 @@ clean:
         $(HOME)/.bashrc \
         $(HOME)/.zshrc \
         $(HOME)/.oh-my-zsh \
-        $(HOME)/.irbrc \
         $(HOME)/.gemrc \
         $(HOME)/bin/gitvi \
         $(HOME)/bin/xmlpp \

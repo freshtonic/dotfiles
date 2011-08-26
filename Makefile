@@ -28,6 +28,12 @@ $(HOME)/.zshrc: zshrc
 $(HOME)/.bashrc: bashrc
 	cp $(shell pwd)/bashrc $@
 
+$(HOME)/.inputrc: inputrc 
+	cp $(shell pwd)/inputrc $@
+
+$(HOME)/.editrc: editrc 
+	cp $(shell pwd)/editrc $@
+
 $(HOME)/.Xmodmap: Xmodmap
 	cp $(shell pwd)/Xmodmap $@
 
@@ -53,6 +59,8 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/.vimrc \
 	$(HOME)/.gvimrc \
 	$(HOME)/.bashrc \
+	$(HOME)/.editrc \
+	$(HOME)/.inputrc \
 	$(HOME)/.oh-my-zsh \
 	$(HOME)/.zshrc \
 	$(HOME)/.gemrc \
@@ -67,13 +75,15 @@ clean:
 	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
 	$(HOME)/.gvimrc \
-        $(HOME)/.vimrc \
-        $(HOME)/.bashrc \
-        $(HOME)/.zshrc \
-        $(HOME)/.oh-my-zsh \
-        $(HOME)/.gemrc \
-        $(HOME)/bin/gitvi \
-        $(HOME)/bin/xmlpp \
-        $(HOME)/bin/xmldiff \
+	$(HOME)/.vimrc \
+	$(HOME)/.bashrc \
+	$(HOME)/.editrc \
+	$(HOME)/.inputrc \
+	$(HOME)/.zshrc \
+	$(HOME)/.oh-my-zsh \
+	$(HOME)/.gemrc \
+	$(HOME)/bin/gitvi \
+	$(HOME)/bin/xmlpp \
+	$(HOME)/bin/xmldiff \
 	$(HOME)/.Xmodmap
 

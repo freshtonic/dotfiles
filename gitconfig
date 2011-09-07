@@ -41,3 +41,4 @@
 	up = pull --rebase
 	reopen = !sh -c 'mvim -p $(git d --name-only HEAD~1..HEAD)' -
 	dn = diff --name-only
+	unadd = reset -p

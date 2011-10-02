@@ -1,6 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/sbin:$PATH
@@ -21,22 +18,7 @@ if [ `uname` == "Darwin" ]; then
     export COMMAND_MODE=unix2003
 fi
 
-# MySQL stuff
-export PATH=/opt/local/lib/mysql5/bin:$PATH
-
 set -o vi
-
-. ~/.git-completion.bash
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-xterm-color)
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    ;;
-*)
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    ;;
-esac
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -60,10 +42,9 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-if [ -f ~/.git-completion.sh ]; then
-    . ~/.git-completion.sh
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
 fi
-
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\$ '
 
 function urlencode {
@@ -87,7 +68,10 @@ for key in $(cd ~/.ssh && ls | grep id_ | grep -v \\.pub$ ); do
     keychain --quiet $key
 done
 
-source ~/.keychain/$HOSTNAME-sh
+if [ -e ~/.keychain/$HOSTNAME-sh ]; then source ~/.keychain/$HOSTNAME-sh; fi
 
-if [ -s ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
+if [ -s ~/.rvm/scripts/rvm ] ; then 
+  source ~/.rvm/scripts/rvm 
+  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)") ($(~/.rvm/bin/rvm-prompt))\$ '
+fi
 

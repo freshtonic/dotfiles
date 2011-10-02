@@ -19,9 +19,6 @@ $(HOME)/.vimrc: vimrc
 $(HOME)/.gvimrc: vimrc
 	cp $(shell pwd)/gvimrc $@
 
-$(HOME)/.oh-my-zsh: oh-my-zsh
-	cp -R $(shell pwd)/oh-my-zsh $@
-
 $(HOME)/.zshrc: zshrc 
 	cp $(shell pwd)/zshrc $@
 
@@ -61,7 +58,6 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/.bashrc \
 	$(HOME)/.editrc \
 	$(HOME)/.inputrc \
-	$(HOME)/.oh-my-zsh \
 	$(HOME)/.zshrc \
 	$(HOME)/.gemrc \
 	$(HOME)/bin/gitvi \
@@ -80,7 +76,6 @@ clean:
 	$(HOME)/.editrc \
 	$(HOME)/.inputrc \
 	$(HOME)/.zshrc \
-	$(HOME)/.oh-my-zsh \
 	$(HOME)/.gemrc \
 	$(HOME)/bin/gitvi \
 	$(HOME)/bin/xmlpp \

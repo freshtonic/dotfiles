@@ -49,6 +49,8 @@ export EDITOR=$(which mvim)
 export GIT_EDITOR="$(which vim)"
 alias vi=vim
 
+alias serve='python -m SimpleHTTPServer'
+
 if [ `uname` = Darwin ]; then
     export PATH=$PATH:/Applications/GitX.app/Contents/Resources/
     # The following fixes iTerm issues.

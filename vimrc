@@ -9,6 +9,14 @@ call pathogen#helptags()
 " This must be first, because it changes other options as side effect
 set nocompatible
 
+syn sync fromstart
+
+" syn sync minlines=50
+" syn sync fromstart
+
+" The first tells vim a minimum number of lines to check, while the second
+" command tells vim to sync from the beginning of the buffer.
+
 " set filetype stuff to on
 filetype on
 filetype plugin on

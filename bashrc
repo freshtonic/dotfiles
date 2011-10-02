@@ -7,9 +7,6 @@ export PATH=/usr/sbin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/bin:$PATH
 
-export LEXER_DIR=~/lexer
-export ERL_LIBS=~/lexer/riak/apps/riak/ebin
-
 DEBEMAIL=freshtonic@gmail.com
 DEBFULLNAME="James Sadler"
 export DEBEMAIL DEBFULLNAME

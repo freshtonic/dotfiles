@@ -75,3 +75,6 @@ if [ -s ~/.rvm/scripts/rvm ] ; then
   PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)") ($(~/.rvm/bin/rvm-prompt))\$ '
 fi
 
+alias be='bundle exec'
+alias bi='bundle install'
+

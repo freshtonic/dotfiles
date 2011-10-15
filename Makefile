@@ -25,6 +25,9 @@ $(HOME)/.zshrc: zshrc
 $(HOME)/.bashrc: bashrc
 	cp $(shell pwd)/bashrc $@
 
+$(HOME)/.bash_profile: bash_profile
+	cp $(shell pwd)/bash_profile $@
+
 $(HOME)/.inputrc: inputrc 
 	cp $(shell pwd)/inputrc $@
 
@@ -56,6 +59,7 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/.vimrc \
 	$(HOME)/.gvimrc \
 	$(HOME)/.bashrc \
+	$(HOME)/.bash_profile \
 	$(HOME)/.editrc \
 	$(HOME)/.inputrc \
 	$(HOME)/.zshrc \
@@ -73,6 +77,7 @@ clean:
 	$(HOME)/.gvimrc \
 	$(HOME)/.vimrc \
 	$(HOME)/.bashrc \
+	$(HOME)/.bash_profile \
 	$(HOME)/.editrc \
 	$(HOME)/.inputrc \
 	$(HOME)/.zshrc \

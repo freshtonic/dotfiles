@@ -42,3 +42,5 @@
 	reopen = !sh -c 'mvim -p $(git d --name-only HEAD~1..HEAD)' -
 	dn = diff --name-only
 	unadd = reset -p
+	jira = !sh -c 'mvim $((ps -ef | grep MacVim | grep -v grep 2>&1 > /dev/null) || echo "-p") $(git log --name-only --relative --pretty=oneline --grep ^$1 | egrep -v "^[0-9a-f]{40}" | sort -u)' -
+

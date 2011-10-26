@@ -45,7 +45,11 @@ fi
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
 fi
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\n\$ '
+
+
+
+
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\nλ '
 
 function urlencode {
    echo $1 | perl -MURI::Escape -lne 'print uri_escape($_)'
@@ -72,7 +76,7 @@ if [ -e ~/.keychain/$HOSTNAME-sh ]; then source ~/.keychain/$HOSTNAME-sh; fi
 
 if [ -s ~/.rvm/scripts/rvm ] ; then 
   source ~/.rvm/scripts/rvm 
-  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)") ($(~/.rvm/bin/rvm-prompt))\n\$ '
+  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)") ($(~/.rvm/bin/rvm-prompt))\nλ '
 fi
 
 alias be='bundle exec'

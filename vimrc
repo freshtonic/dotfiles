@@ -22,14 +22,6 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" change the mapleader from \ to ,
-let mapleader=","
-
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-
 " lets us e: another buffer without being forced to save or undo existing
 set hidden
 
@@ -95,15 +87,6 @@ fun! s:ToggleMouse()
     endif
 endfunction
 
-" Use Q for formatting the current paragraph (or selection)
-vmap Q gq
-nmap Q gqap
-
-" Save stuff owned by root when you forgot to open as root
-cmap w!! w !sudo tee % >/dev/null
-
-" Unhighlight search results
-nnoremap ; :set invhlsearch<CR>
 
 set dir=/tmp
 
@@ -126,8 +109,6 @@ set ttyfast                     "tf:    improves redrawing for newer computers
 set nojoinspaces                "nojs:  prevents inserting two spaces after punctuation on a join (it's not 1990 anymore)
 set lazyredraw                  "lz:    will not redraw the screen while running macros (goes faster)
 
-" Fix for legacy vi inconsistency
-map Y y$
 
 set background=dark 
 set t_Co=256
@@ -142,9 +123,6 @@ set splitbelow                  "sb:    puts new split windows to the bottom of 
 set winminheight=0              "wmh:   the minimal line height of any non-current window
 set winminwidth=0               "wmw:   the minimal column width of any non-current window
 
-" Tab navigation
-nnoremap <silent> <C-n> :tabnext<CR>
-nnoremap <silent> <C-p> :tabprevious<CR>
 
 set tabpagemax=30
 
@@ -152,7 +130,7 @@ augroup myfiletypes
   " Clear old autocmds in group
   autocmd!
   " autoindent with two spaces, always expand tabs
-  autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+  autocmd FileType ruby,eruby,yaml,cucumber set ai sw=2 sts=2 et
   autocmd FileType coffee set ai sw=2 sts=2 et
   autocmd FileType python set ai ts=4 sts=4 et sw=4
   " autocmd FileType xml set ai ts=8 sw=8 sts=8
@@ -186,14 +164,6 @@ set noerrorbells
 set visualbell
 set t_vb=
 
-" Key mapping to start FuzzyFinder
-nnoremap <silent> <C-f> :FuzzyFinderFile<CR>
-
-" pretty print XML
-nmap <silent> <leader>xp :%!$HOME/bin/xmlpp -tcen 2> /dev/null<CR>
-
-" send the Ruby code in the buffer through awesome print.
-nmap <silent> <leader>ap :%!/Users/jsadler/.rvm/rubies/ruby-1.9.2-p0/bin/ruby -e "require 'ap'; STDIN.each_line{ \|l\| ap eval(l) }"<cr>
 
 function! PreviewMKD()
 " TODO: can't get bluecloth to load within vim, so write .md to temp
@@ -228,3 +198,37 @@ function! NewScratchBuffer()
 endfunction
 
 map <Leader>sb :call NewScratchBuffer()<CR>
+"
+let mapleader=","
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Use Q for formatting the current paragraph (or selection)
+vmap Q gq
+nmap Q gqap
+
+" Save stuff owned by root when you forgot to open as root
+cmap w!! w !sudo tee % >/dev/null
+
+" Unhighlight search results
+nnoremap ; :set invhlsearch<CR>
+" Fix for legacy vi inconsistency
+map Y y$
+
+" Tab navigation
+nnoremap <silent> <C-n> :tabnext<CR>
+nnoremap <silent> <C-p> :tabprevious<CR>
+
+" Key mapping to start FuzzyFinder
+nnoremap <silent> <C-f> :FuzzyFinderFile<CR>
+
+" pretty print XML
+nmap <silent> <leader>xp :%!$HOME/bin/xmlpp -tcen 2> /dev/null<CR>
+
+" send the Ruby code in the buffer through awesome print.
+nmap <silent> <leader>ap :%!ruby -e "require 'rubygems'; require 'awesome_print'; STDIN.each_line{ \|l\| ap eval(l) }"<cr>
+
+" Run git grep
+nmap <leader>gg :r!git grep 

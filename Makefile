@@ -68,7 +68,11 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/bin/git2cl \
 	$(HOME)/bin/xmlpp \
 	$(HOME)/bin/xmldiff \
-	$(HOME)/.Xmodmap
+	$(HOME)/.Xmodmap \
+	command-t
+
+command-t:
+	cd ~/.vim/bundle/command-t/ruby/command-t && ruby ./extconf.rb && make
 
 clean:
 	rm -fr $(HOME)/.git-completion.bash \

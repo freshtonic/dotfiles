@@ -16,9 +16,6 @@ $(HOME)/.vim/autoload/pathogen.vim: vim-pathogen/autoload/pathogen.vim
 $(HOME)/.vimrc: vimrc
 	cp $(shell pwd)/vimrc $@
 
-$(HOME)/.gvimrc: vimrc
-	cp $(shell pwd)/gvimrc $@
-
 $(HOME)/.zshrc: zshrc 
 	cp $(shell pwd)/zshrc $@
 
@@ -57,7 +54,6 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/.vim \
 	$(HOME)/.vim/autoload/pathogen.vim \
 	$(HOME)/.vimrc \
-	$(HOME)/.gvimrc \
 	$(HOME)/.bashrc \
 	$(HOME)/.bash_profile \
 	$(HOME)/.editrc \
@@ -78,7 +74,6 @@ clean:
 	rm -fr $(HOME)/.git-completion.bash \
 	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
-	$(HOME)/.gvimrc \
 	$(HOME)/.vimrc \
 	$(HOME)/.bashrc \
 	$(HOME)/.bash_profile \

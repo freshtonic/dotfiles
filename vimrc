@@ -1,13 +1,10 @@
-" BEGIN: load modules with Tim Pope's vim-pathogen
 " see: http://www.vim.org/scripts/script.php?script_id=2332 for details
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-" END: load modules with Tim Pope's vim-pathogen
 
 "" This must be first, because it changes other options as side effect
 set nocompatible
-
 
 syn sync minlines=200
 syn sync fromstart
@@ -62,11 +59,8 @@ set ttyfast                     "tf:    improves redrawing for newer computers
 set nojoinspaces                "nojs:  prevents inserting two spaces after punctuation on a join (it's not 1990 anymore)
 set lazyredraw                  "lz:    will not redraw the screen while running macros (goes faster)
 
-
-
 set switchbuf=useopen           "swb:   Jumps to first window or tab that contains specified buffer instead of duplicating an open window
 set showtabline=1               "stal:  Display the tabbar if there are multiple tabs. Use :tab ball or invoke Vim with -p
-
 set tabpagemax=30
 
 "augroup myfiletypes

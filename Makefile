@@ -34,6 +34,9 @@ $(HOME)/.editrc: editrc
 $(HOME)/.Xmodmap: Xmodmap
 	cp $(shell pwd)/Xmodmap $@
 
+$(HOME)/.ackrc: ackrc
+	cp $(shell pwd)/ackrc $@
+
 $(HOME)/.gemrc: gemrc 
 	cp $(shell pwd)/gemrc $@
 
@@ -60,6 +63,7 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/.inputrc \
 	$(HOME)/.zshrc \
 	$(HOME)/.gemrc \
+	$(HOME)/.ackrc \
 	$(HOME)/bin/gitvi \
 	$(HOME)/bin/git2cl \
 	$(HOME)/bin/xmlpp \
@@ -81,6 +85,7 @@ clean:
 	$(HOME)/.inputrc \
 	$(HOME)/.zshrc \
 	$(HOME)/.gemrc \
+	$(HOME)/.ackrc \
 	$(HOME)/bin/gitvi \
 	$(HOME)/bin/xmlpp \
 	$(HOME)/bin/xmldiff \

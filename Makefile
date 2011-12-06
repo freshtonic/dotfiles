@@ -72,7 +72,7 @@ install: $(HOME)/.git-completion.bash \
 	command-t
 
 command-t:
-	rvm use 1.9.2 && cd ~/.vim/bundle/command-t/ruby/command-t && ruby ./extconf.rb && make
+	rvm use 1.8.7 && cd ~/.vim/bundle/command-t/ruby/command-t && ruby ./extconf.rb && make
 
 clean:
 	rm -fr $(HOME)/.git-completion.bash \

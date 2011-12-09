@@ -73,3 +73,9 @@
 [submodule "vim/bundle/vim-yankring"]
 	path = vim/bundle/vim-yankring
 	url = https://github.com/chrismetcalf/vim-yankring.git
+[submodule "vim-solarized"]
+	path = vim-solarized
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule "vim/bundle/vim-solarized"]
+	path = vim/bundle/vim-solarized
+	url = https://github.com/altercation/vim-colors-solarized

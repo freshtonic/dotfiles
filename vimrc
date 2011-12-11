@@ -90,31 +90,10 @@ endif
 
 let g:syntastic_enable_signs=1
 
-function! PreviewMKD()
-ruby << EOF
-	require 'tempfile'
-	t = ""
-	VIM::Buffer.current.count.times {|i| t += "#{VIM::Buffer.current[i + 1]}\n"}
-	Tempfile.open(VIM::Buffer.current.name.gsub(/^.+\//, ""), '/tmp') do |f|
-		f.write(t)
-		f.flush
-		File.open("/tmp/#{f.path.gsub(/^.+\//,"")}-markdown-preview.html", 'w') do |out|
-			out.write("<html><head><link rel='stylesheet' type='text/css'
-			href='file:///#{ENV['HOME']}/.vim/markdown-preview.css'</head><body>")
-			body = `bluecloth -f #{f.path}`
-			out.write(body)
-			out.write('</body></html>')
-			out.flush
-			system("open #{out.path}")
-		end
-	end
-EOF
-endfunction
-map <Leader>mp :call PreviewMKD()<CR>
-
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>ev :e ~/code/dotfiles/vimrc<CR>
+nmap <silent> <leader>sv :so ~/code/dotfiles/vimrc<CR>
+nmap <silent> <leader>mv :!(cd ~/code/dotfiles && make clean install)<CR>
 
 
 set autoindent

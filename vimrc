@@ -111,6 +111,7 @@ set lazyredraw
 set linebreak
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+nmap <silent> <C-\> :set list!<CR>
 set showbreak=↪
 set mouse=a
 set noerrorbells

@@ -1,23 +1,25 @@
-" see: http://www.vim.org/scripts/script.php?script_id=2332 for details
-filetype off
+" Much of my .vimrc is taken from Steve Losh's .vimrc which can be found below.
+" My .vimrc is in a state of flux at the moment as I go through a phase of
+" Vim hackery and experimentation. I make no claim that my configuration is either
+" clean or sane. Use at your own peril ;)
+"
+" Steve Losh's stuff bits:
+" Author: Steve Losh <steve@stevelosh.com>
+" Source: http://bitbucket.org/sjl/dotfiles/src/tip/vim/
+" My bits
+" Author: James Sadler <freshtonic@gmail.com>
+" Source http://github.com/freshtonic/dotfiles
 
-" call pathogen#runtime_append_all_bundles()
+filetype off
 call pathogen#infect()
 call pathogen#helptags()
-
 set nocompatible
 filetype plugin indent on
 
 syn sync minlines=200
 syn sync fromstart
 
-if has('gui_macvim')
-      set gfn=Menlo:h11
-else
-    colorscheme ir_black
-endif
-
-if &t_Co >= 256 && has("gui_running")
+if has("gui_running")
     set background=dark 
     set t_Co=256
     set background=dark
@@ -26,6 +28,51 @@ if &t_Co >= 256 && has("gui_running")
     highlight Pmenu ctermbg=238 gui=bold
     set guioptions=egmrt
     syntax on
+
+    " Remove all the UI cruft
+    set go-=T
+    set go-=l
+    set go-=L
+    set go-=r
+    set go-=R
+
+    " Use a line-drawing char for pretty vertical splits.
+    set fillchars+=vert:│
+
+    if has("gui_macvim")
+        " Full screen means FULL screen
+        set fuoptions=maxvert,maxhorz
+
+        set gfn=Menlo:h11
+
+        " Use the normal HIG movements, except for M-Up/Down
+        let macvim_skip_cmd_opt_movement = 1
+        no   <D-Left>       <Home>
+        no!  <D-Left>       <Home>
+        no   <M-Left>       <C-Left>
+        no!  <M-Left>       <C-Left>
+
+        no   <D-Right>      <End>
+        no!  <D-Right>      <End>
+        no   <M-Right>      <C-Right>
+        no!  <M-Right>      <C-Right>
+
+        no   <D-Up>         <C-Home>
+        ino  <D-Up>         <C-Home>
+        imap <M-Up>         <C-o>{
+
+        no   <D-Down>       <C-End>
+        ino  <D-Down>       <C-End>
+        imap <M-Down>       <C-o>}
+
+        imap <M-BS>         <C-w>
+        inoremap <D-BS>     <esc>my0c`y
+    else
+        " Non-MacVim GUI, like Gvim
+    end
+else
+    " Console Vim
+    colorscheme ir_black
 endif
 
 
@@ -41,19 +88,9 @@ endif
 "augroup END
 
 
-" Don't screw up folds when inserting text that might affect them, until
-" leaving insert mode. Foldmethod is local to the window. Protect against
-" screwing up folding when switching between windows.
-" autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-" autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
-
-" Syntastic syntax checking
 let g:syntastic_enable_signs=1
 
 function! PreviewMKD()
-" TODO: can't get bluecloth to load within vim, so write .md to temp
-" file, and launch an rvm ruby to do the bluecloth stuff and open
-" the HTML file.
 ruby << EOF
 	require 'tempfile'
 	t = ""
@@ -79,12 +116,6 @@ map <Leader>mp :call PreviewMKD()<CR>
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-" MUCH BELOW IS TAKEN FROM STEVE LOSH'S VIMRC
-" .vimrc
-" Author: Steve Losh <steve@stevelosh.com>
-" Source: http://bitbucket.org/sjl/dotfiles/src/tip/vim/
-
-" Basic options ----------------------------------------------------------- 
 
 set autoindent
 set backspace=indent,eol,start
@@ -288,6 +319,14 @@ augroup ft_ruby
     autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 augroup END
 
+augroup ft_vim
+    au!
+    au FileType vim setlocal foldmethod=marker
+    au FileType help setlocal textwidth=78
+    " The folowing puts Vim help files in a vertical split
+    au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+augroup END
+
 " Use Q for formatting the current paragraph (or selection)
 vmap Q gq
 nmap Q gqap
@@ -483,50 +522,3 @@ function! ToggleDiffWhitespace() "
 endfunc 
 
 nnoremap <leader>dw :call ToggleDiffWhitespace()<CR>
-
-
-if has('gui_running')
-
-    " Remove all the UI cruft
-    set go-=T
-    set go-=l
-    set go-=L
-    set go-=r
-    set go-=R
-
-    " Use a line-drawing char for pretty vertical splits.
-    set fillchars+=vert:│
-
-    if has("gui_macvim")
-        " Full screen means FULL screen
-        set fuoptions=maxvert,maxhorz
-
-        " Use the normal HIG movements, except for M-Up/Down
-        let macvim_skip_cmd_opt_movement = 1
-        no   <D-Left>       <Home>
-        no!  <D-Left>       <Home>
-        no   <M-Left>       <C-Left>
-        no!  <M-Left>       <C-Left>
-
-        no   <D-Right>      <End>
-        no!  <D-Right>      <End>
-        no   <M-Right>      <C-Right>
-        no!  <M-Right>      <C-Right>
-
-        no   <D-Up>         <C-Home>
-        ino  <D-Up>         <C-Home>
-        imap <M-Up>         <C-o>{
-
-        no   <D-Down>       <C-End>
-        ino  <D-Down>       <C-End>
-        imap <M-Down>       <C-o>}
-
-        imap <M-BS>         <C-w>
-        inoremap <D-BS>     <esc>my0c`y
-    else
-        " Non-MacVim GUI, like Gvim
-    end
-else
-    " Console Vim
-endif
-

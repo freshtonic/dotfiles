@@ -82,4 +82,5 @@ fi
 
 alias be='bundle exec'
 alias bi='bundle install'
+alias tmux='TERM=screen-256color-bce tmux'
 

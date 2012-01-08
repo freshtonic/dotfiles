@@ -13,6 +13,9 @@ $(HOME)/.vim: vim
 $(HOME)/.vim/autoload/pathogen.vim: vim-pathogen/autoload/pathogen.vim
 	cp -R $(shell pwd)/vim-pathogen/autoload/pathogen.vim $@
 
+$(HOME)/.tmux.conf: tmux.conf 
+	cp $(shell pwd)/tmux.conf $@
+
 $(HOME)/.vimrc: vimrc
 	cp $(shell pwd)/vimrc $@
 
@@ -56,6 +59,7 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
 	$(HOME)/.vim/autoload/pathogen.vim \
+	$(HOME)/.tmux.conf\
 	$(HOME)/.vimrc \
 	$(HOME)/.bashrc \
 	$(HOME)/.bash_profile \
@@ -78,6 +82,7 @@ clean:
 	rm -fr $(HOME)/.git-completion.bash \
 	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
+	$(HOME)/.tmux.conf \
 	$(HOME)/.vimrc \
 	$(HOME)/.bashrc \
 	$(HOME)/.bash_profile \

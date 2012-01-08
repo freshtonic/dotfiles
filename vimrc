@@ -19,6 +19,11 @@ filetype plugin indent on
 syn sync minlines=200
 syn sync fromstart
 
+set t_Co=256
+" let g:solarized_termcolors=256
+colorscheme solarized
+" set background=dark 
+
 if has("gui_running")
     set background=dark 
     set t_Co=256
@@ -72,7 +77,7 @@ if has("gui_running")
     end
 else
     " Console Vim
-    colorscheme ir_black
+    " colorscheme ir_black
 endif
 
 

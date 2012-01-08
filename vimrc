@@ -10,6 +10,16 @@
 " Author: James Sadler <freshtonic@gmail.com>
 " Source http://github.com/freshtonic/dotfiles
 
+
+" Mega VIM TIP:
+" The following command dumps all Vim mappings to a file.
+"
+" To find out which plugin created a mapping, you can do a git bisect run until
+" you find what's responsible.
+"
+" vim -s <(echo -e ':redir! >vim-mappings.txt\n:silent map\n:redir END\n:q\n')
+
+
 filetype off
 call pathogen#infect()
 call pathogen#helptags()

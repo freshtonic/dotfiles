@@ -81,16 +81,15 @@ else
 endif
 
 
-" TODO: merge this stuff with Steve Losh's settings
-"augroup myfiletypes
-"  " Clear old autocmds in group
-"  autocmd!
-"  " autoindent with two spaces, always expand tabs
-"  autocmd FileType ruby,eruby,yaml,cucumber set ai sw=2 sts=2 et
-"  autocmd FileType coffee set ai sw=2 sts=2 et
-" autocmd FileType xml set ai ts=8 sw=8 sts=8
-"  autocmd FileType xslt set ai ts=2 sw=2
-"augroup END
+augroup myfiletypes
+  autocmd!
+  " autoindent with two spaces, always expand tabs
+  autocmd FileType ruby,eruby,yaml,cucumber set ai sw=2 sts=2 et
+  autocmd FileType coffee set ai sw=2 sts=2 et
+  autocmd FileType xml set ai ts=8 sw=8 sts=8
+  autocmd FileType xslt set ai ts=2 sw=2
+  autocmd FileType vim set ai ts=2 sw=2
+augroup END
 
 
 let g:syntastic_enable_signs=1

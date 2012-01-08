@@ -229,8 +229,8 @@ iabbrev vrcf `~/.vimrc` file
 " Searching and movement -------------------------------------------------- 
 
 " Use sane regexes.
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 
 set ignorecase
 set smartcase

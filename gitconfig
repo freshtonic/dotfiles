@@ -43,4 +43,6 @@
 	dn = diff --name-only
 	unadd = reset -p
 	jira = !sh -c 'mvim $((ps -ef | grep MacVim | grep -v grep 2>&1 > /dev/null) || echo "-p") $(git log --name-only --relative --pretty=oneline --grep ^$1 | egrep -v "^[0-9a-f]{40}" | sort -u)' -
-
+	current-branch = !git branch | grep '^*' | sed s/\\*\\ //
+	track = !git branch --set-upstream $(git current-branch) origin/$(git current-branch)
+	publish = !git push origin $(git current-branch) && echo $(git track)

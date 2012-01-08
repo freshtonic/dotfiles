@@ -100,6 +100,10 @@ nmap <silent> <leader>sv :so ~/code/dotfiles/vimrc<CR>
 nmap <silent> <leader>mv :!(cd ~/code/dotfiles && make clean install)<CR>
 
 
+let g:ConqueTerm_Color = 0
+let g:ConqueTerm_TERM = 'vt100'
+
+
 set autoindent
 set backspace=indent,eol,start
 set cmdheight=2

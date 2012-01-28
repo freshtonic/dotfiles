@@ -58,7 +58,7 @@ if has("gui_running")
         " Full screen means FULL screen
         set fuoptions=maxvert,maxhorz
 
-        set gfn=Menlo:h11
+        set gfn=Menlo:h14
 
         " Use the normal HIG movements, except for M-Up/Down
         let macvim_skip_cmd_opt_movement = 1

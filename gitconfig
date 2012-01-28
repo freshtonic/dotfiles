@@ -46,3 +46,5 @@
 	current-branch = !git branch | grep '^*' | sed s/\\*\\ //
 	track = !git branch --set-upstream $(git current-branch) origin/$(git current-branch)
 	publish = !git push origin $(git current-branch) && echo $(git track)
+[push]
+	default = current

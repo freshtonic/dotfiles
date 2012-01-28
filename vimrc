@@ -242,6 +242,10 @@ iabbrev vrcf `~/.vimrc` file
 " nnoremap / /\v
 " vnoremap / /\v
 
+
+nnoremap <silent> <C-N> :tabnext<CR>
+nnoremap <silent> <C-P> :tabprev<CR>
+
 set ignorecase
 set smartcase
 set incsearch

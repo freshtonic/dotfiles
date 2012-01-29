@@ -43,6 +43,9 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+export GIT_PS1_SHOWSTASHSTATE=yes
+export GIT_PS1_SHOWUNTRACKEDFILES=yes
+export GIT_PS1_SHOWUPSTREAM=verbose
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
 fi

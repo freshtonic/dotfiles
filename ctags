@@ -1,0 +1,6 @@
+
+--exclude=teamsite
+--exclude=coverage
+--exclude=public
+--exclude=db
+

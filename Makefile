@@ -55,6 +55,9 @@ $(HOME)/bin/xmlpp: bin/xmlpp
 $(HOME)/bin/xmldiff: bin/xmldiff
 	cp bin/xmldiff $(HOME)/bin/
 
+$(HOME)/.ctags: ctags
+	cp $(shell pwd)/ctags $@
+
 install: $(HOME)/.git-completion.bash \
 	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
@@ -72,6 +75,7 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/bin/git2cl \
 	$(HOME)/bin/xmlpp \
 	$(HOME)/bin/xmldiff \
+	$(HOME)/.ctags \
 	$(HOME)/.Xmodmap \
 	command-t
 
@@ -94,5 +98,6 @@ clean:
 	$(HOME)/bin/gitvi \
 	$(HOME)/bin/xmlpp \
 	$(HOME)/bin/xmldiff \
+	$(HOME)/.ctags \
 	$(HOME)/.Xmodmap
 

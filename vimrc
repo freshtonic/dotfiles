@@ -18,6 +18,10 @@
 " you find what's responsible.
 "
 " vim -s <(echo -e ':redir! >vim-mappings.txt\n:silent map\n:redir END\n:q\n')
+"
+" the following is also useful 
+" :verbose map <c-s>
+" gives you details about the given mapping ( in our case <c-s>)
 
 
 filetype off

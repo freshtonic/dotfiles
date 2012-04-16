@@ -39,6 +39,7 @@
 	bp = buildpackage
 	gh = !sh -c 'git clone git://github.com/$1/$2.git' -
 	up = pull --rebase
+    openchanged = !sh -c 'vim -p $($HOME/bin/changedfiles)' -
 	reopen = !sh -c 'mvim -p $(git d --name-only HEAD~1..HEAD)' -
 	dn = diff --name-only
 	unadd = reset -p

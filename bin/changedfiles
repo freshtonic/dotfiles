@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+`git status --porcelain`.each_line do |line|
+  parts = line.split(' ')
+  puts parts[1..-1].join(' ')
+end

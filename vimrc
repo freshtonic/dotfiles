@@ -381,6 +381,9 @@ nnoremap <silent> <F6> :YRShow<cr>
 " HTML tag closing
 inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<cr>a
 
+" copy filename of current buffer into unnamed register
+nmap <silent> <leader>fn :let @" = expand("%")<CR>
+
 
 " Better Completion
 set completeopt=longest,menuone,preview

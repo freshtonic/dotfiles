@@ -531,3 +531,11 @@ function! ToggleDiffWhitespace() "
 endfunc 
 
 nnoremap <leader>dw :call ToggleDiffWhitespace()<CR>
+
+set ttimeoutlen=50
+
+if &term =~ "xterm" || &term =~ "screen"
+  let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
+  let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
+  let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
+endif

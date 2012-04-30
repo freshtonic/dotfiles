@@ -374,6 +374,9 @@ nnoremap <leader>D :diffoff!<cr>
 " Yankring
 nnoremap <silent> <F6> :YRShow<cr>
 
+" CTAGS
+nmap <silent> <leader>T :!ctags -R `bundle show rails`/../*<cr>
+
 " Preview Files
 " TODO: install plugin https://github.com/robgleeson/hammer.vim
 " nnoremap <leader>p :w<cr>:Hammer<cr>

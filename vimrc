@@ -23,6 +23,8 @@
 " :verbose map <c-s>
 " gives you details about the given mapping ( in our case <c-s>)
 
+set wildignore+=teamsite/**
+
 
 filetype off
 call pathogen#infect()

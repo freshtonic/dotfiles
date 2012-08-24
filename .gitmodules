@@ -82,3 +82,12 @@
 [submodule "vim/bundle/vim-powerline"]
 	path = vim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/bundle/vim-slime"]
+	path = vim/bundle/vim-slime
+	url = git@github.com:jpalardy/vim-slime.git
+[submodule "vim/bundle/tabular"]
+	path = vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "vim/bundle/vim-jade"]
+	path = vim/bundle/vim-jade
+	url = git://github.com/digitaltoad/vim-jade.git

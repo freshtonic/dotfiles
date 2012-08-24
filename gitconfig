@@ -1,6 +1,8 @@
 [user]
 	name = James Sadler
 	email = freshtonic@gmail.com
+[credential]
+    helper = osxkeychain
 [merge]
 	tool = p4merge
 [diff]
@@ -47,5 +49,6 @@
 	current-branch = !git branch | grep '^*' | sed s/\\*\\ //
 	track = !git branch --set-upstream $(git current-branch) origin/$(git current-branch)
 	publish = !git push origin $(git current-branch) && echo $(git track)
+    pinion = !git config --add user.email jim@pinion.gg
 [push]
 	default = current

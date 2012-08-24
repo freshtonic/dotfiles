@@ -1,0 +1,3 @@
+#!/bin/bash
+
+markdown $1 | htmldoc --cont --format pdf14 - > $(basename $1 .md).pdf 

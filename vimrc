@@ -101,9 +101,8 @@ augroup myfiletypes
   autocmd!
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml,cucumber set ai sw=2 sts=2 et
-  autocmd FileType coffee set ai sw=2 sts=2 et
-  autocmd FileType xml set ai ts=8 sw=8 sts=8
-  autocmd FileType xslt set ai ts=2 sw=2
+  autocmd FileType coffee,javascript set ai sw=2 sts=2 et
+  autocmd FileType xml,html,xslt,svg set ai ts=2 sw=2 sts=2
   autocmd FileType vim set ai ts=2 sw=2
 augroup END
 
@@ -115,6 +114,11 @@ nmap <silent> <leader>ev :e ~/code/dotfiles/vimrc<CR>
 nmap <silent> <leader>sv :so ~/code/dotfiles/vimrc<CR>
 nmap <silent> <leader>mv :!(cd ~/code/dotfiles && make clean install)<CR>
 
+" No more regular command mode.
+" Edit commands in a proper buffer with full Vim commands at your disposal.
+" nmap <silent> : q:i
+
+
 
 let g:ConqueTerm_Color = 0
 let g:ConqueTerm_TERM = 'vt100'
@@ -122,7 +126,7 @@ let g:ConqueTerm_TERM = 'vt100'
 
 set autoindent
 set backspace=indent,eol,start
-set cmdheight=2
+set cmdheight=1
 set cursorline
 set dictionary=/usr/share/dict/words
 set dir=/tmp
@@ -133,7 +137,7 @@ set incsearch
 set laststatus=2
 set lazyredraw
 set linebreak
-set list
+set nolist
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 nmap <silent> <C-\> :set list!<CR>
 set showbreak=↪
@@ -544,3 +548,5 @@ if &term =~ "xterm" || &term =~ "screen"
   let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
   let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
 endif
+
+let g:slime_target = "tmux"

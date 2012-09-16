@@ -550,3 +550,6 @@ if &term =~ "xterm" || &term =~ "screen"
 endif
 
 let g:slime_target = "tmux"
+
+
+let g:Powerline_symbols = 'fancy'

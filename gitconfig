@@ -24,7 +24,7 @@
 	co = checkout
 	s = status
 	st = stash
-	c = commit
+	c = commit -v
 	d = diff
 	a = add
 	b = branch

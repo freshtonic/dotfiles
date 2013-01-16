@@ -15,10 +15,9 @@
 	status = true
 	ui = true
 [alias]
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-	clg = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
-	slg = log --name-status --pretty=oneline
-	flg = log --graph --pretty=format:'%Cblue%h%d%Creset %ar %Cgreen%an%Creset %s'
+	plainlog = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
+	fileslog = log --name-status --pretty=oneline
+	l = log --graph --pretty=format:'%Cblue%h%d%Creset %ar %Cgreen%an%Creset %s'
 	f = fetch -v
 	ff = merge --ff-only
 	co = checkout

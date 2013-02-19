@@ -94,3 +94,6 @@
 [submodule "powerline-bash"]
 	path = powerline-bash
 	url = git://github.com/milkbikis/powerline-bash.git
+[submodule "powerline-shell"]
+	path = powerline-shell
+	url = https://github.com/milkbikis/powerline-shell

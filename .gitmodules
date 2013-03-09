@@ -67,9 +67,6 @@
 [submodule "vim/bundle/gundo"]
 	path = vim/bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
-[submodule "vim/bundle/command-t"]
-	path = vim/bundle/command-t
-	url = https://github.com/wincent/Command-T.git
 [submodule "vim/bundle/vim-yankring"]
 	path = vim/bundle/vim-yankring
 	url = https://github.com/chrismetcalf/vim-yankring.git
@@ -97,3 +94,6 @@
 [submodule "powerline-shell"]
 	path = powerline-shell
 	url = https://github.com/milkbikis/powerline-shell
+[submodule "vim/bundle/ctrlp.vim"]
+	path = vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git

@@ -361,14 +361,15 @@ nmap <silent> <leader>ap :%!ruby -e "require 'rubygems'; require 'awesome_print'
 " Run git grep
 nmap <leader>gg<CR>:r!git grep 
 
-"" CamelCaseMotion conflicts with the default <Leader>b binding of Command-T
-nnoremap <silent> <Leader>l :CommandTBuffer<CR>
 " Clean whitespace
 map <leader>W  :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Change case
 nnoremap <leader>u gUiw
 
+" Start CrtlP in mixed mode. Same bindings as I used to use for CommandP
+nmap <silent> <leader>t :CtrlPMixed<CR>
+nmap <silent> <leader>l :CtrlPBuffer<CR>
 
 " Emacs bindings in command line mode
 cnoremap <c-a> <home>
@@ -543,11 +544,6 @@ nnoremap <leader>dw :call ToggleDiffWhitespace()<CR>
 
 set ttimeoutlen=50
 
-if &term =~ "xterm" || &term =~ "screen"
-  let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
-  let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
-  let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
-endif
 
 let g:slime_target = "tmux"
 

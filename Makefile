@@ -84,11 +84,7 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/bin/xmlpp \
 	$(HOME)/bin/xmldiff \
 	$(HOME)/.ctags \
-	$(HOME)/.Xmodmap \
-	command-t
-
-command-t:
-	bash -c "rvm use 1.8.7-p352 && cd ~/.vim/bundle/command-t/ruby/command-t && ruby ./extconf.rb && make"
+	$(HOME)/.Xmodmap
 
 clean:
 	rm -fr $(HOME)/.git-completion.bash \

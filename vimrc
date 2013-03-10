@@ -368,8 +368,9 @@ map <leader>W  :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>u gUiw
 
 " Start CrtlP in mixed mode. Same bindings as I used to use for CommandP
-nmap <silent> <leader>t :CtrlPMixed<CR>
-nmap <silent> <leader>l :CtrlPBuffer<CR>
+nmap <silent> <leader>l :CtrlPMixed<CR>
+" Disable the default <c-p> binding
+let g:ctrlp_map=''
 
 " Emacs bindings in command line mode
 cnoremap <c-a> <home>

@@ -1,3 +1,2 @@
-
 --smart-case
---pager='less -R'
+--pager=less -R

@@ -19,6 +19,7 @@ if [ `uname` == "Darwin" ]; then
     # The following fixes iTerm issues.
     # unix2003 is the default in Terminal.app but not in iTerm it seems.
     export COMMAND_MODE=unix2003
+    export PATH=$PATH:/Applications/p4merge.app/Contents/MacOS/
 fi
 
 set -o vi

@@ -88,12 +88,6 @@
 [submodule "vim/bundle/vim-jade"]
 	path = vim/bundle/vim-jade
 	url = git://github.com/digitaltoad/vim-jade.git
-[submodule "powerline-bash"]
-	path = powerline-bash
-	url = git://github.com/milkbikis/powerline-bash.git
-[submodule "powerline-shell"]
-	path = powerline-shell
-	url = https://github.com/milkbikis/powerline-shell
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git

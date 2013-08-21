@@ -46,9 +46,6 @@ $(HOME)/.gemrc: gemrc
 $(HOME)/bin/gitvi: bin/gitvi
 	cp bin/gitvi $(HOME)/bin/
 
-$(HOME)/bin/powerline-shell.py: powerline-shell/powerline-shell.py
-	cp powerline-shell/powerline-shell.py $(HOME)/bin/
-
 $(HOME)/bin/changedfiles: bin/changedfiles
 	cp bin/changedfiles $(HOME)/bin/
 
@@ -78,7 +75,6 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/.gemrc \
 	$(HOME)/.ackrc \
 	$(HOME)/bin/gitvi \
-	$(HOME)/bin/powerline-shell.py \
 	$(HOME)/bin/changedfiles \
 	$(HOME)/bin/git2cl \
 	$(HOME)/bin/xmlpp \
@@ -100,7 +96,6 @@ clean:
 	$(HOME)/.gemrc \
 	$(HOME)/.ackrc \
 	$(HOME)/bin/gitvi \
-	$(HOME)/bin/powerline-shell.py \
 	$(HOME)/bin/changedfiles \
 	$(HOME)/bin/xmlpp \
 	$(HOME)/bin/xmldiff \

@@ -4,7 +4,6 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/sbin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/bin:$PATH
-export PATH=/usr/local/share/python:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 
 DEBEMAIL=freshtonic@gmail.com

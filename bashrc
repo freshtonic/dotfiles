@@ -15,11 +15,11 @@ export EDITOR=$(which vim)
 alias vi=$(which vim)
 
 if [ `uname` == "Darwin" ]; then
-    export PATH=$PATH:/Applications/GitX.app/Contents/Resources/
+    export PATH=$PATH:/Applications/GitX.app/Contents/Resources
     # The following fixes iTerm issues.
     # unix2003 is the default in Terminal.app but not in iTerm it seems.
     export COMMAND_MODE=unix2003
-    export PATH=$PATH:/Applications/p4merge.app/Contents/MacOS/
+    export PATH=$PATH:/Applications/p4merge.app/Contents/MacOS
 fi
 
 set -o vi

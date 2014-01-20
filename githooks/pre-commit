@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+# Checks for things that I often commit accidentally and bails out of the
+# commit. To skip this pre-commit hook use `git commit --no-verify`.
+
+checks = [
+  /\bddescribe\b/,
+  /\biit\b/,
+  /\bxit\b/
+]
+
+files_modified = `git diff-index --cached --name-only HEAD`.split("\n")
+
+files_modified.each do |file_name|
+  content = File.read(file_name)
+  checks.each do |check|
+    if content =~ check
+      STDERR.puts "#{file_name} matches pre-commit check #{check}. Aborting commit"
+      exit 1
+    end
+  end
+end

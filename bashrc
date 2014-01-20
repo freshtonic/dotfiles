@@ -83,12 +83,9 @@ done
 
 if [ -e ~/.keychain/$HOSTNAME-sh ]; then source ~/.keychain/$HOSTNAME-sh; fi
 
-if [ -s ~/.rvm/scripts/rvm ] ; then 
-  source ~/.rvm/scripts/rvm 
-  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)") ($(~/.rvm/bin/rvm-prompt))\nλ '
-fi
-
 alias be='bundle exec'
 alias bi='bundle install'
 alias tmux='TERM=screen-256color-bce tmux'
 
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh

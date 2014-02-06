@@ -107,7 +107,6 @@ augroup myfiletypes
 augroup END
 
 
-let g:syntastic_enable_signs=1
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e ~/code/dotfiles/vimrc<CR>
@@ -460,7 +459,7 @@ endfunction
 nnoremap <silent> <leader><tab> :call NewScratchBuffer()<cr>
 
 let g:syntastic_enable_signs = 1
-let g:syntastic_disabled_filetypes = ['html', 'cucumber']
+let g:syntastic_passive_filetypes = ['html', 'cucumber']
 let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
 let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
 

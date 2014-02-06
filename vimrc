@@ -367,7 +367,7 @@ map <leader>W  :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>u gUiw
 
 " Start CrtlP in mixed mode. Same bindings as I used to use for CommandP
-nmap <silent> <leader>l :CtrlPMixed<CR>
+nmap <silent> <leader>l :CtrlP<CR>
 " Disable the default <c-p> binding
 let g:ctrlp_map=''
 

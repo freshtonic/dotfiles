@@ -6,13 +6,15 @@
 checks = [
   /\bddescribe\b/,
   /\biit\b/,
-  /\bxit\b/
+  /\bxit\b/,
+  /binding.pry/,
+  /debugger/
 ]
 
-files_modified = `git diff-index --cached --name-only HEAD`.split("\n")
+files_modified = `git diff-index --diff-filter=ACMRTUXB --cached --name-only HEAD`.split("\n")
 
 files_modified.each do |file_name|
-  content = File.read(file_name)
+  content = `git show :"#{file_name}"` # read file from cache (i.e. what will be commited)
   checks.each do |check|
     if content =~ check
       STDERR.puts "#{file_name} matches pre-commit check #{check}. Aborting commit"

@@ -5,6 +5,7 @@
 	helper = osxkeychain
 [merge]
 	tool = p4merge
+    conflictstyle = diff3
 [diff]
 	tool = p4merge
 [diff]

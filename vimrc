@@ -37,7 +37,8 @@ syn sync fromstart
 
 set t_Co=256
 " let g:solarized_termcolors=256
-colorscheme solarized
+" colorscheme solarized
+colorscheme default
 set background=dark 
 
 if has("gui_running")
@@ -458,10 +459,13 @@ function! NewScratchBuffer()
 endfunction
 nnoremap <silent> <leader><tab> :call NewScratchBuffer()<cr>
 
-let g:syntastic_enable_signs = 1
-let g:syntastic_passive_filetypes = ['html', 'cucumber']
+" let g:syntastic_enable_signs = 1
+" let g:syntastic_active_filetypes = ['ruby', 'coffee', 'javascript']
+" let g:syntastic_passive_filetypes = ['html', 'cucumber']
+" let g:syntastic_disabled_filetypes = ['html', 'cucumber']
 let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
 let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'coffee', 'javascript'],'passive_filetypes': ['html', 'cucumber'] }
 
 
 " Motion for "next/last object". For example, "din(" would go to the next "()" pair

@@ -19,7 +19,7 @@
 	plainlog = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
 	fileslog = log --name-status --pretty=oneline
 	l = log --graph --pretty=format:'%Cblue%h%d%Creset %ar %Cgreen%an%Creset %s'
-    ls = git ls-files
+    ls = ls-files
 	f = fetch -v
 	ff = merge --ff-only
 	co = checkout

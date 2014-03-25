@@ -371,6 +371,7 @@ nnoremap <leader>u gUiw
 nmap <silent> <leader>l :CtrlP<CR>
 " Disable the default <c-p> binding
 let g:ctrlp_map=''
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Emacs bindings in command line mode
 cnoremap <c-a> <home>

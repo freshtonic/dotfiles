@@ -19,6 +19,7 @@
 	plainlog = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
 	fileslog = log --name-status --pretty=oneline
 	l = log --graph --pretty=format:'%Cblue%h%d%Creset %ar %Cgreen%an%Creset %s'
+    ls = git ls-files
 	f = fetch -v
 	ff = merge --ff-only
 	co = checkout
@@ -28,28 +29,15 @@
 	d = diff
 	a = add
 	b = branch
-	l = log
 	m = merge
 	p = push
 	rb = rebase
 	r = reset
 	sh = show
 	t = tag
-	w = whatchanged -p
 	cp = cherry-pick
 	ch = cherry
-	bp = buildpackage
 	gh = !sh -c 'git clone git://github.com/$1/$2.git' -
-	pull = pull --ff-only
-	up = pull --rebase
-	openchanged = !sh -c 'vim -p $($HOME/bin/changedfiles)' -
-	reopen = !sh -c 'mvim -p $(git d --name-only HEAD~1..HEAD)' -
 	dn = diff --name-only
-	unadd = reset -p
-	jira = !sh -c 'mvim $((ps -ef | grep MacVim | grep -v grep 2>&1 > /dev/null) || echo "-p") $(git log --name-only --relative --pretty=oneline --grep ^$1 | egrep -v "^[0-9a-f]{40}" | sort -u)' -
-	current-branch = !git branch | grep '^*' | sed s/\\*\\ //
-	track = !git branch --set-upstream $(git current-branch) origin/$(git current-branch)
-	publish = !git push origin $(git current-branch) && echo $(git track)
-    pinion = !git config --add user.email jim@pinion.gg
 [push]
 	default = current

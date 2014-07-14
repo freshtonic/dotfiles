@@ -39,5 +39,6 @@
 	ch = cherry
 	gh = !sh -c 'git clone git://github.com/$1/$2.git' -
 	dn = diff --name-only
+    ss = !sh -c 'git status -s | cut -c4-'
 [push]
 	default = current

@@ -89,3 +89,5 @@ alias tmux='TERM=screen-256color-bce tmux'
 
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
+
+chruby ruby-2.1.0

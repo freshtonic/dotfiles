@@ -58,7 +58,7 @@ function _update_ps1()
    export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\nλ '
 }
 
-export PROMPT_COMMAND="_update_ps1"
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"; _update_ps1'
 
 function urlencode {
    echo $1 | perl -MURI::Escape -lne 'print uri_escape($_)'

@@ -20,7 +20,7 @@
 	fileslog = log --name-status --pretty=oneline
 	l = log --graph --pretty=format:'%Cblue%h%d%Creset %ar %Cgreen%an%Creset %s'
     ls = ls-files
-	f = fetch -v
+	f = fetch
 	ff = merge --ff-only
 	co = checkout
 	s = status

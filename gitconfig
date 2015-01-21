@@ -41,3 +41,6 @@
     ss = !sh -c 'git status -s | cut -c4-'
 [push]
 	default = current
+[rerere]
+    enabled = true
+

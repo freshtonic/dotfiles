@@ -526,11 +526,6 @@ function! s:AckMotion(type) abort
     let @@ = reg_save
 endfunction
 
-
-function! g:echodammit(msg)
-    exec 'echom "----------> ' . a:msg . '"'
-endfunction
-
 " Toggle whitespace in diffs 
 
 set diffopt-=iwhite

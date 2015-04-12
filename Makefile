@@ -10,13 +10,22 @@ $(HOME)/.gitconfig: gitconfig
 $(HOME)/.vim: vim
 	cp -R $(shell pwd)/vim $@
 
+$(HOME)/.nvim: vim
+	cp -R $(shell pwd)/vim $@
+
 $(HOME)/.vim/autoload/pathogen.vim: vim-pathogen/autoload/pathogen.vim
+	cp -R $(shell pwd)/vim-pathogen/autoload/pathogen.vim $@
+
+$(HOME)/.nvim/autoload/pathogen.vim: vim-pathogen/autoload/pathogen.vim
 	cp -R $(shell pwd)/vim-pathogen/autoload/pathogen.vim $@
 
 $(HOME)/.tmux.conf: tmux.conf 
 	cp $(shell pwd)/tmux.conf $@
 
 $(HOME)/.vimrc: vimrc
+	cp $(shell pwd)/vimrc $@
+
+$(HOME)/.nvimrc: vimrc
 	cp $(shell pwd)/vimrc $@
 
 $(HOME)/.zshrc: zshrc 
@@ -64,9 +73,12 @@ $(HOME)/.ctags: ctags
 install: $(HOME)/.git-completion.bash \
 	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
+	$(HOME)/.nvim \
+	$(HOME)/.nvim/autoload/pathogen.vim \
 	$(HOME)/.vim/autoload/pathogen.vim \
 	$(HOME)/.tmux.conf\
 	$(HOME)/.vimrc \
+	$(HOME)/.nvimrc \
 	$(HOME)/.bashrc \
 	$(HOME)/.bash_profile \
 	$(HOME)/.editrc \
@@ -86,8 +98,10 @@ clean:
 	rm -fr $(HOME)/.git-completion.bash \
 	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
+	$(HOME)/.nvim \
 	$(HOME)/.tmux.conf \
 	$(HOME)/.vimrc \
+	$(HOME)/.vimrc n\
 	$(HOME)/.bashrc \
 	$(HOME)/.bash_profile \
 	$(HOME)/.editrc \

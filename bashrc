@@ -11,7 +11,8 @@ DEBFULLNAME="James Sadler"
 export DEBEMAIL DEBFULLNAME
 
 export EDITOR=$(which nvim || which vim)
-alias vi=$(which vim)
+alias vi=$(which nvim || which vim)
+alias vim=$(which nvim || which vim)
 
 if [ `uname` == "Darwin" ]; then
     export PATH=$PATH:/Applications/GitX.app/Contents/Resources

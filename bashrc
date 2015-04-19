@@ -10,7 +10,7 @@ DEBEMAIL=freshtonic@gmail.com
 DEBFULLNAME="James Sadler"
 export DEBEMAIL DEBFULLNAME
 
-export EDITOR=$(which vim)
+export EDITOR=$(which nvim || which vim)
 alias vi=$(which vim)
 
 if [ `uname` == "Darwin" ]; then

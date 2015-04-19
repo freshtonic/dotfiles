@@ -19,7 +19,7 @@
 "
 " vim -s <(echo -e ':redir! >vim-mappings.txt\n:silent map\n:redir END\n:q\n')
 "
-" the following is also useful 
+" the following is also useful
 " :verbose map <c-s>
 " gives you details about the given mapping ( in our case <c-s>)
 
@@ -114,12 +114,6 @@ nmap <silent> <leader>mv :!(cd ~/code/dotfiles && make clean install)<CR>
 " Edit commands in a proper buffer with full Vim commands at your disposal.
 " nmap <silent> : q:i
 
-
-
-let g:ConqueTerm_Color = 0
-let g:ConqueTerm_TERM = 'vt100'
-
-
 set autoindent
 set backspace=indent,eol,start
 set cmdheight=1
@@ -151,44 +145,37 @@ set ttyfast
 set visualbell
 
 " Make Vim able to edit crontab files again.
-set backupskip=/tmp/*,/private/tmp/*" 
+set backupskip=/tmp/*,/private/tmp/*"
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 
-" Tabs, spaces, wrapping 
-
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+" Tabs, spaces, wrapping
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set wrap
 set textwidth=80
 set formatoptions=qrn1
 " set colorcolumn=+1
 
-" Backups 
-
+" Backups
 set undodir=~/.vim/tmp/undo//     " undo files
 set backupdir=~/.vim/tmp/backup// " backups
 set directory=~/.vim/tmp/swap//   " swap files
 set backup                        " enable backups
 
-" Leader 
-
+" Leader
 let mapleader = ","
 let maplocalleader = "\\"
-
-" Color scheme 
 
 syntax on
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-
-" Status line ------------------------------------------------------------- 
-
+" Status line -------------------------------------------------------------
 augroup ft_statuslinecolor
     au!
 
@@ -204,11 +191,8 @@ set statusline=%{fugitive#statusline()}\ %<%f\ %y\ %#warningmsg#%*
 set statusline+=%m   " Modified flag.
 set statusline+=%r   " Readonly flag.
 set statusline+=%w   " Preview window flag.
-
 set statusline+=\    " Space.
-
 set statusline+=%=   " Right align.
-
 " File format, encoding and type.  Ex: "(unix/utf-8/python)"
 set statusline+=(
 set statusline+=%{&ff}                        " Format (unix/DOS).
@@ -217,11 +201,10 @@ set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
 set statusline+=/
 set statusline+=%{&ft}                        " Type (python).
 set statusline+=)
-
 " Line and column position and counts.
 set statusline+=\ (line\ %l\/%L,\ col\ %03c)
 
-" Abbreviations ----------------------------------------------------------- 
+" Abbreviations -----------------------------------------------------------
 
 function! EatChar(pat)
     let c = nr2char(getchar(0))
@@ -242,7 +225,7 @@ iabbrev lhap ಥ‿ಥ
 iabbrev fr@ freshtonic@gmail.com
 iabbrev vrcf `~/.vimrc` file
 
-" Searching and movement -------------------------------------------------- 
+" Searching and movement --------------------------------------------------
 
 " Use sane regexes.
 " nnoremap / /\v
@@ -294,7 +277,7 @@ nnoremap Vab vabV
 nnoremap VaB vaBV
 
 
-" Directional Keys 
+" Directional Keys
 
 " It's 2011.
 noremap j gj
@@ -307,10 +290,7 @@ noremap <C-k>  <C-w>k
 noremap <C-l>  <C-w>l
 noremap <leader>v <C-w>v
 
-
-
-
-" Destroy infuriating keys ------------------------------------------------ 
+" Destroy infuriating keys ------------------------------------------------
 
 " Fuck you, help key.
 noremap  <F1> :set invfullscreen<CR>
@@ -355,7 +335,7 @@ nmap <silent> <leader>xp :%!$HOME/bin/xmlpp -tcen 2> /dev/null<CR>
 nmap <silent> <leader>ap :%!ruby -e "require 'rubygems'; require 'awesome_print'; STDIN.each_line{ \|l\| ap eval(l) }"<cr>
 
 " Run git grep
-nmap <leader>gg<CR>:r!git grep 
+nmap <leader>gg<CR>:r!git grep
 
 " Clean whitespace
 map <leader>W  :%s/\s\+$//<cr>:let @/=''<CR>
@@ -396,7 +376,7 @@ nmap <silent> <leader>fn :let @" = expand("%")<CR>
 " Better Completion
 set completeopt=longest,menuone,preview
 
-" Handle URL 
+" Handle URL
 " Stolen from https://github.com/askedrelic/homedir/blob/master/.vimrc
 " OSX only: Open a web-browser with the URL in the current line
 function! HandleURI()
@@ -410,7 +390,7 @@ function! HandleURI()
 endfunction
 map <leader>u :call HandleURI()<CR>
 
-map <leader>a :Ack! 
+map <leader>a :Ack!
 
 
 nnoremap <leader>gd :Gdiff<cr>
@@ -521,7 +501,7 @@ function! s:AckMotion(type) abort
     let @@ = reg_save
 endfunction
 
-" Toggle whitespace in diffs 
+" Toggle whitespace in diffs
 
 set diffopt-=iwhite
 let g:diffwhitespaceon = 1
@@ -534,12 +514,11 @@ function! ToggleDiffWhitespace() "
         let g:diffwhitespaceon = 1
     endif
     diffupdate
-endfunc 
+endfunc
 
 nnoremap <leader>dw :call ToggleDiffWhitespace()<CR>
 
 set ttimeoutlen=50
-
 
 let g:slime_target = "tmux"
 
@@ -548,21 +527,8 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
-
-" powerline symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -572,4 +538,17 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 set foldmethod=marker
+
+if has("nvim")
+  tnoremap <A-h> <C-\><C-n><C-w>h
+  tnoremap <A-j> <C-\><C-n><C-w>j
+  tnoremap <A-k> <C-\><C-n><C-w>k
+  tnoremap <A-l> <C-\><C-n><C-w>l
+endif
+
+" These don't work for some reason... maybe iTerm2 masks things
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 

@@ -36,15 +36,13 @@ syn sync minlines=8000
 syn sync fromstart
 
 set t_Co=256
-" let g:solarized_termcolors=256
-" colorscheme solarized
-colorscheme default
-set background=dark 
+let g:solarized_termcolors=256
+colorscheme solarized
+set background=light
 
 if has("gui_running")
-    set background=dark 
     set t_Co=256
-    set background=dark
+    set background=light
     colorscheme solarized
     "improve autocomplete menu color
     highlight Pmenu ctermbg=238 gui=bold
@@ -92,9 +90,6 @@ if has("gui_running")
     else
         " Non-MacVim GUI, like Gvim
     end
-else
-    " Console Vim
-    " colorscheme ir_black
 endif
 
 

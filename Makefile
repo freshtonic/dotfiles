@@ -70,6 +70,12 @@ $(HOME)/bin/xmldiff: bin/xmldiff
 $(HOME)/.ctags: ctags
 	cp $(shell pwd)/ctags $@
 
+# Works around Ctrl-H being misinterpreted as backspace in neovim
+# due to bad OSX terminfo. Regular vim must ignore some OS-provided
+# terminfo for it not to misbehave!
+$(HOME)/.xterm-256color.ti:
+	@infocmp xterm-256color | sed 's/kbs=^[hH]/kbs=\\177/' > $@
+
 install: $(HOME)/.git-completion.bash \
 	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
@@ -92,7 +98,8 @@ install: $(HOME)/.git-completion.bash \
 	$(HOME)/bin/xmlpp \
 	$(HOME)/bin/xmldiff \
 	$(HOME)/.ctags \
-	$(HOME)/.Xmodmap
+	$(HOME)/.Xmodmap \
+	$(HOME)/.xterm-256color.ti
 
 clean:
 	rm -fr $(HOME)/.git-completion.bash \
@@ -114,5 +121,6 @@ clean:
 	$(HOME)/bin/xmlpp \
 	$(HOME)/bin/xmldiff \
 	$(HOME)/.ctags \
-	$(HOME)/.Xmodmap
+	$(HOME)/.Xmodmap \
+	$(HOME)/.xterm-256color.ti
 

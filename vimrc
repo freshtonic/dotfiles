@@ -414,16 +414,7 @@ let g:rdfa_attributes_complete = 0
 let g:microdata_attributes_complete = 0
 let g:atia_attributes_complete = 0
 
-noremap  <F2> :NERDTreeToggle<cr>
-inoremap <F2> <esc>:NERDTreeToggle<cr>
-
 au Filetype nerdtree setlocal nolist
-
-let NERDTreeHighlightCursorline=1
-let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$', 'whoosh_index', 'xapian_index', '.*.pid', 'monitor.py', '.*-fixtures-.*.json', '.*\.o$', 'db.db']
-
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
 
 function! NewScratchBuffer()
        set buftype=nofile
@@ -431,15 +422,6 @@ function! NewScratchBuffer()
        setlocal noswapfile
 endfunction
 nnoremap <silent> <leader><tab> :call NewScratchBuffer()<cr>
-
-" let g:syntastic_enable_signs = 1
-" let g:syntastic_active_filetypes = ['ruby', 'coffee', 'javascript']
-" let g:syntastic_passive_filetypes = ['html', 'cucumber']
-" let g:syntastic_disabled_filetypes = ['html', 'cucumber']
-let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
-let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'coffee', 'javascript'],'passive_filetypes': ['html', 'cucumber'] }
-
 
 " Motion for "next/last object". For example, "din(" would go to the next "()" pair
 " and delete its contents.

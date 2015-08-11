@@ -170,6 +170,9 @@ set backup                        " enable backups
 let mapleader = ","
 let maplocalleader = "\\"
 
+" Use the old regex engine.  The new one makes ruby syntax highlighting *really*
+" slow.
+set re=1
 syntax on
 
 " Highlight VCS conflict markers

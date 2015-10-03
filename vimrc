@@ -38,12 +38,10 @@ syn sync fromstart
 set t_Co=256
 let g:solarized_termcolors=256
 colorscheme solarized
-set background=light
+set background=dark
 
 if has("gui_running")
     set t_Co=256
-    set background=light
-    colorscheme solarized
     "improve autocomplete menu color
     highlight Pmenu ctermbg=238 gui=bold
     set guioptions=egmrt

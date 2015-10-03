@@ -36,9 +36,14 @@ syn sync minlines=8000
 syn sync fromstart
 
 set t_Co=256
-let g:solarized_termcolors=256
-colorscheme solarized
+
 set background=dark
+" solarized options 
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+colorscheme solarized
+
+
 
 if has("gui_running")
     set t_Co=256

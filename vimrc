@@ -241,3 +241,30 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
+augroup indentation
+  autocmd!
+  " autoindent with two spaces, always expand tabs
+  autocmd FileType ruby,eruby,yaml,cucumber set ai sw=2 sts=2 et
+  autocmd FileType coffee,javascript set ai sw=2 sts=2 et
+  autocmd FileType xml,html,xslt,svg set ai ts=2 sw=2 sts=2
+  autocmd FileType css,scss set ai ts=2 sw=2 sts=2
+  autocmd FileType vim set ai ts=2 sw=2
+augroup END
+
+augroup ft_ruby
+    au!
+    " au Filetype ruby setlocal foldmethod=syntax
+    autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+    autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+    autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+    autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+augroup END
+
+augroup ft_vim
+    au!
+    au FileType vim setlocal foldmethod=marker
+    au FileType help setlocal textwidth=78
+    " The folowing puts Vim help files in a vertical split
+    au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+augroup END
+

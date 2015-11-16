@@ -241,6 +241,8 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
+map <C-\> :NERDTreeToggle<CR>
+
 augroup indentation
   autocmd!
   " autoindent with two spaces, always expand tabs

@@ -247,10 +247,12 @@ augroup indentation
   autocmd!
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml,cucumber set ai sw=2 sts=2 et
+  autocmd FileType js,jsx set ai sw=2 sts=2 et
   autocmd FileType coffee,javascript set ai sw=2 sts=2 et
   autocmd FileType xml,html,xslt,svg set ai ts=2 sw=2 sts=2
   autocmd FileType css,scss set ai ts=2 sw=2 sts=2
   autocmd FileType vim set ai ts=2 sw=2
+  autocmd FileType aspvbs set ai ts=2 sw=2 sts=2
 augroup END
 
 augroup ft_ruby
@@ -267,6 +269,6 @@ augroup ft_vim
     au FileType vim setlocal foldmethod=marker
     au FileType help setlocal textwidth=78
     " The folowing puts Vim help files in a vertical split
-    au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+    " au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
 

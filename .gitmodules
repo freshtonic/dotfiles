@@ -115,3 +115,6 @@
 [submodule "vim/bundle/nerdtree-git-plugin"]
 	path = vim/bundle/nerdtree-git-plugin
 	url = git@github.com:Xuyuanp/nerdtree-git-plugin.git
+[submodule "vim/bundle/vim-javascript"]
+	path = vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git

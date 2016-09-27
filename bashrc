@@ -95,4 +95,3 @@ source /usr/local/share/chruby/auto.sh
 #source $(brew --prefix nvm)/nvm.sh
 
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
-

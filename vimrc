@@ -22,7 +22,7 @@ filetype plugin indent on
 " syn sync fromstart
 
 set t_Co=256
-set background=light
+set background=dark
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 colorscheme solarized

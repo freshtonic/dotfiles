@@ -94,10 +94,11 @@ source /usr/local/share/chruby/auto.sh
 #export NVM_DIR=~/.nvm
 #source $(brew --prefix nvm)/nvm.sh
 
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
-
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
 source $HOME/.cargo/env
+
+echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bash_profile
+echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bash_profile
 

@@ -9,6 +9,8 @@ TARGETS=$(HOME)/.git-completion.bash \
 	$(HOME)/.tmux.conf\
 	$(HOME)/.vimrc \
 	$(HOME)/.nvimrc \
+	$(HOME)/.config/nvim \
+	$(HOME)/.config/nvim/init.vim \
 	$(HOME)/.bashrc \
 	$(HOME)/.bash_profile \
 	$(HOME)/.editrc \
@@ -51,6 +53,12 @@ $(HOME)/.vimrc: vimrc
 
 $(HOME)/.nvimrc: vimrc
 	cp vimrc $@
+
+$(HOME)/.config/nvim: $(HOME)/.vim
+	ln -s $(HOME)/.vim $@
+
+$(HOME)/.config/nvim/init.vim: $(HOME)/.config/nvim $(HOME)/.vimrc
+	ln -s $(HOME)/.vimrc $@
 
 $(HOME)/.zshrc: zshrc 
 	cp zshrc $@

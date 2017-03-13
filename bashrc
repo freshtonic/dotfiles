@@ -102,3 +102,13 @@ source $HOME/.cargo/env
 echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bash_profile
 echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bash_profile
 
+# Elixir/Phoenix Aliases
+alias mh="mix help"
+alias mps="mix phoenix.server"
+alias mt="mix test"
+alias mdu="mix deps.update"
+alias mc="mix compile"
+alias megm="mix ecto.gen.migration"
+alias mem="mix ecto.migrate"
+
+

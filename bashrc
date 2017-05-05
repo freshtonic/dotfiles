@@ -110,5 +110,8 @@ alias mdu="mix deps.update"
 alias mc="mix compile"
 alias megm="mix ecto.gen.migration"
 alias mem="mix ecto.migrate"
+alias mer="mix ecto.rollback"
+alias mpr="mix phoenix.routes"
+alias im="iex -S mix"
 
 

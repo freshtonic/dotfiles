@@ -88,16 +88,8 @@ alias be='bundle exec'
 alias bi='bundle install'
 alias tmux='TERM=screen-256color-bce tmux'
 
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-
-#export NVM_DIR=~/.nvm
-#source $(brew --prefix nvm)/nvm.sh
-
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
-
-source $HOME/.cargo/env
 
 echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bash_profile
 echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bash_profile

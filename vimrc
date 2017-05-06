@@ -11,10 +11,38 @@
 " :verbose map <c-s>
 " gives you details about the given mapping ( in our case <c-s>)
 
+set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vim-colors-solarized
+
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/syntastic'
+Plugin 'bkad/CamelCaseMotion'
+Plugin 'vim-airline/vim-airline'
+Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-surround'
+Plugin 'kien/ctrlp.vim'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'mxw/vim-jsx'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tmhedberg/matchit'
+Plugin 'tpope/vim-endwise'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-fugitive'
+
+" more Plugin commands
+" ...
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 set wildignore+=node_modules/**
 filetype off
-call pathogen#infect()
-call pathogen#helptags()
 set nocompatible
 filetype plugin indent on
 
@@ -23,9 +51,6 @@ filetype plugin indent on
 
 set t_Co=256
 set background=dark
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-colorscheme solarized
 set cursorline
 set ignorecase
 set smartcase
@@ -271,4 +296,12 @@ augroup ft_vim
     " The folowing puts Vim help files in a vertical split
     " au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
+
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+colorscheme solarized
+
 

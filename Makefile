@@ -4,8 +4,6 @@ TARGETS=$(HOME)/.git-completion.bash \
 	$(HOME)/.gitconfig \
 	$(HOME)/.vim \
 	$(HOME)/.nvim \
-	$(HOME)/.nvim/autoload/pathogen.vim \
-	$(HOME)/.vim/autoload/pathogen.vim \
 	$(HOME)/.tmux.conf\
 	$(HOME)/.vimrc \
 	$(HOME)/.nvimrc \
@@ -38,12 +36,6 @@ $(HOME)/.vim: vim
 
 $(HOME)/.nvim: vim
 	cp -R vim $@
-
-$(HOME)/.vim/autoload/pathogen.vim: vim-pathogen/autoload/pathogen.vim
-	cp -R vim-pathogen/autoload/pathogen.vim $@
-
-$(HOME)/.nvim/autoload/pathogen.vim: vim-pathogen/autoload/pathogen.vim
-	cp -R vim-pathogen/autoload/pathogen.vim $@
 
 $(HOME)/.tmux.conf: tmux.conf 
 	cp tmux.conf $@

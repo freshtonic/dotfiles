@@ -19,15 +19,17 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'bkad/CamelCaseMotion'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"# Plugin 'vim-airline/vim-airline'
+"# Plugin 'vim-airline/vim-airline-themes'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tmhedberg/matchit'
@@ -40,6 +42,8 @@ Plugin 'tpope/vim-fugitive'
 " more Plugin commands
 " ...
 call vundle#end()            " required
+
+
 filetype plugin indent on    " required
 
 set wildignore+=node_modules/**
@@ -52,7 +56,6 @@ filetype plugin indent on
 
 set t_Co=256
 set background=dark
-set cursorline
 set ignorecase
 set smartcase
 set incsearch
@@ -63,7 +66,6 @@ set laststatus=2
 set autoindent
 set backspace=indent,eol,start
 set cmdheight=1
-set cursorline
 set dictionary=/usr/share/dict/words
 set dir=/tmp
 set encoding=utf-8
@@ -88,29 +90,28 @@ set splitbelow
 set splitright
 set switchbuf=useopen
 set tabpagemax=30
-set ttyfast
 set visualbell
 
 " Display the filename in the statusline
 " set statusline=%{fugitive#statusline()}\ %<%f\ %y\ %#warningmsg#%{}%*
-set statusline=%{fugitive#statusline()}\ %<%f\ %y\ %#warningmsg#%*
-
-"set statusline=%f    " Path.
-set statusline+=%m   " Modified flag.
-set statusline+=%r   " Readonly flag.
-set statusline+=%w   " Preview window flag.
-set statusline+=\    " Space.
-set statusline+=%=   " Right align.
+" set statusline=%{fugitive#statusline()}\ %<%f\ %y\ %#warningmsg#%*
+" 
+" "set statusline=%f    " Path.
+" set statusline+=%m   " Modified flag.
+" set statusline+=%r   " Readonly flag.
+" set statusline+=%w   " Preview window flag.
+" set statusline+=\    " Space.
+" set statusline+=%=   " Right align.
 " File format, encoding and type.  Ex: "(unix/utf-8/python)"
-set statusline+=(
-set statusline+=%{&ff}                        " Format (unix/DOS).
-set statusline+=/
-set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
-set statusline+=/
-set statusline+=%{&ft}                        " Type (python).
-set statusline+=)
-" Line and column position and counts.
-set statusline+=\ (line\ %l\/%L,\ col\ %03c)
+" set statusline+=(
+" set statusline+=%{&ff}                        " Format (unix/DOS).
+" set statusline+=/
+" set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
+" set statusline+=/
+" set statusline+=%{&ft}                        " Type (python).
+" set statusline+=)
+" " Line and column position and counts.
+" set statusline+=\ (line\ %l\/%L,\ col\ %03c)
 
 
 " Backups
@@ -122,6 +123,8 @@ set backup                        " enable backups
 " Leader
 let mapleader = ","
 let maplocalleader = "\\"
+
+call camelcasemotion#CreateMotionMappings('<leader>')
 
 " Use the old regex engine.  The new one makes ruby syntax highlighting *really*
 " slow.
@@ -268,6 +271,8 @@ nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
 map <C-\> :NERDTreeToggle<CR>
+
+set nofoldenable    " disable folding
 
 augroup indentation
   autocmd!

@@ -91,19 +91,24 @@ alias tmux='TERM=screen-256color-bce tmux'
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
-echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bash_profile
-echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bash_profile
-
 # Elixir/Phoenix Aliases
 alias mh="mix help"
 alias mps="mix phoenix.server"
 alias mt="mix test"
+alias mdg="mix deps.get"
 alias mdu="mix deps.update"
 alias mc="mix compile"
 alias megm="mix ecto.gen.migration"
+alias med="mix ecto.drop"
+alias mec="mix ecto.create"
+alias mes="mix ecto.setup"
 alias mem="mix ecto.migrate"
 alias mer="mix ecto.rollback"
 alias mpr="mix phoenix.routes"
 alias im="iex -S mix"
 
+source $HOME/.cargo/env
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
 

@@ -47,10 +47,10 @@ $(HOME)/.nvimrc: vimrc
 	cp vimrc $@
 
 $(HOME)/.config/nvim: $(HOME)/.vim
-	ln -s $(HOME)/.vim $@
+	ln -f -s $(HOME)/.vim $@
 
 $(HOME)/.config/nvim/init.vim: $(HOME)/.config/nvim $(HOME)/.vimrc
-	ln -s $(HOME)/.vimrc $@
+	ln -f -s $(HOME)/.vimrc $@
 
 $(HOME)/.zshrc: zshrc 
 	cp zshrc $@

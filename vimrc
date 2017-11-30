@@ -27,7 +27,6 @@ Plugin 'bkad/CamelCaseMotion'
 "# Plugin 'vim-airline/vim-airline-themes'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-surround'
-Plugin 'kien/ctrlp.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'mxw/vim-jsx'
@@ -38,10 +37,12 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-fugitive'
-
 " more Plugin commands
 " ...
 call vundle#end()            " required
+
+" Add Fuzzy Finder to run time path
+set rtp+=/usr/local/opt/fzf
 
 
 filetype plugin indent on    " required
@@ -124,6 +125,8 @@ set backup                        " enable backups
 let mapleader = ","
 let maplocalleader = "\\"
 
+nmap <silent> <leader>l :FZF<CR>
+
 call camelcasemotion#CreateMotionMappings('<leader>')
 
 " Use the old regex engine.  The new one makes ruby syntax highlighting *really*
@@ -189,25 +192,25 @@ map Y y$
 map <leader>W  :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Start CrtlP in mixed mode. Same bindings as I used to use for CommandP
-nmap <silent> <leader>l :CtrlP<CR>
-" Disable the default <c-p> binding
-let g:ctrlp_map=''
-let g:ctrlp_custom_ignore = 'node_modules\|\.DS_Store\|\.git'
-
-" CtrlP auto cache clearing.
-" ----------------------------------------------------------------------------
-function! SetupCtrlP()
-  if exists("g:loaded_ctrlp") && g:loaded_ctrlp
-    augroup CtrlPExtension
-      autocmd!
-      autocmd FocusGained  * CtrlPClearCache
-      autocmd BufWritePost * CtrlPClearCache
-    augroup END
-  endif
-endfunction
-if has("autocmd")
-  autocmd VimEnter * :call SetupCtrlP()
-endif
+"nmap <silent> <leader>l :CtrlP<CR>
+"" Disable the default <c-p> binding
+"let g:ctrlp_map=''
+"let g:ctrlp_custom_ignore = 'node_modules\|\.DS_Store\|\.git'
+"
+"" CtrlP auto cache clearing.
+"" ----------------------------------------------------------------------------
+"function! SetupCtrlP()
+"  if exists("g:loaded_ctrlp") && g:loaded_ctrlp
+"    augroup CtrlPExtension
+"      autocmd!
+"      autocmd FocusGained  * CtrlPClearCache
+"      autocmd BufWritePost * CtrlPClearCache
+"    augroup END
+"  endif
+"endfunction
+"if has("autocmd")
+"  autocmd VimEnter * :call SetupCtrlP()
+"endif
 
 " Emacs bindings in command line mode
 cnoremap <c-a> <home>

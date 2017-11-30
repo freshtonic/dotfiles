@@ -114,3 +114,8 @@ source $HOME/.cargo/env
 
 export ERL_AFLAGS="-kernel shell_history enabled"
 
+# Enable the fuxxy finder keybindings
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export FZF_DEFAULT_OPTS="-m --reverse --inline-info"
+

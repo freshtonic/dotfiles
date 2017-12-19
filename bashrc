@@ -118,4 +118,4 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export FZF_DEFAULT_OPTS="-m --reverse --inline-info"
-
+export FZF_DEFAULT_COMMAND='fd --type f'

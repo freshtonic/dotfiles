@@ -93,7 +93,7 @@ export PATH=$GOPATH/bin:$PATH
 
 # Elixir/Phoenix Aliases
 alias mh="mix help"
-alias mps="mix phoenix.server"
+alias mps="mix phx.server"
 alias mt="mix test"
 alias mdg="mix deps.get"
 alias mdu="mix deps.update"
@@ -104,7 +104,7 @@ alias mec="mix ecto.create"
 alias mes="mix ecto.setup"
 alias mem="mix ecto.migrate"
 alias mer="mix ecto.rollback"
-alias mpr="mix phoenix.routes"
+alias mpr="mix phx.routes"
 alias im="iex -S mix"
 
 source $HOME/.cargo/env

@@ -278,7 +278,7 @@ augroup indentation
   autocmd!
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml,cucumber set ai sw=2 sts=2 et
-  autocmd FileType js,jsx set ai sw=2 sts=2 et
+  autocmd FileType js,jsx,json set ai sw=2 sts=2 et
   autocmd FileType coffee,javascript set ai sw=2 sts=2 et
   autocmd FileType xml,html,xslt,svg set ai ts=2 sw=2 sts=2
   autocmd FileType css,scss set ai ts=2 sw=2 sts=2

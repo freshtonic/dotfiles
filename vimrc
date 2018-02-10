@@ -269,6 +269,8 @@ nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
 map <C-\> :NERDTreeToggle<CR>
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
 
 set nofoldenable    " disable folding
 

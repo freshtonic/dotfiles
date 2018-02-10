@@ -192,27 +192,6 @@ map Y y$
 " Clean whitespace
 map <leader>W  :%s/\s\+$//<cr>:let @/=''<CR>
 
-" Start CrtlP in mixed mode. Same bindings as I used to use for CommandP
-"nmap <silent> <leader>l :CtrlP<CR>
-"" Disable the default <c-p> binding
-"let g:ctrlp_map=''
-"let g:ctrlp_custom_ignore = 'node_modules\|\.DS_Store\|\.git'
-"
-"" CtrlP auto cache clearing.
-"" ----------------------------------------------------------------------------
-"function! SetupCtrlP()
-"  if exists("g:loaded_ctrlp") && g:loaded_ctrlp
-"    augroup CtrlPExtension
-"      autocmd!
-"      autocmd FocusGained  * CtrlPClearCache
-"      autocmd BufWritePost * CtrlPClearCache
-"    augroup END
-"  endif
-"endfunction
-"if has("autocmd")
-"  autocmd VimEnter * :call SetupCtrlP()
-"endif
-
 " Emacs bindings in command line mode
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>

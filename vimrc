@@ -37,6 +37,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-fugitive'
+Plugin 'jonstoler/werewolf.vim'
 " more Plugin commands
 " ...
 call vundle#end()            " required
@@ -56,7 +57,7 @@ filetype plugin indent on
 " syn sync fromstart
 
 set t_Co=256
-set background=dark
+" set background=dark
 set ignorecase
 set smartcase
 set incsearch
@@ -322,10 +323,13 @@ augroup ft_vim
 augroup END
 
 
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 colorscheme solarized
 
-
+let g:werewolf_day_themes = ['dark']
+let g:werewolf_night_themes = ['light']
+" default 8, use 24 hour format
+let g:werewolf_day_start = 8
+" default 20, 24 hour format
+let g:werewolf_day_end = 20

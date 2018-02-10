@@ -53,8 +53,8 @@ filetype off
 set nocompatible
 filetype plugin indent on
 
-" syn sync minlines=8000
-" syn sync fromstart
+syn sync minlines=8000
+syn sync fromstart
 
 set t_Co=256
 " set background=dark

@@ -57,7 +57,20 @@ syn sync minlines=8000
 syn sync fromstart
 
 set t_Co=256
-" set background=dark
+
+let g:is_dark_background = 1
+function! ToggleBackground() 
+	if g:is_dark_background
+		let g:is_dark_background = 0
+		set background=light
+	else
+		let g:is_dark_background = 1
+		set background=dark
+	endif
+endfunction
+
+set background=dark
+
 set ignorecase
 set smartcase
 set incsearch
@@ -140,6 +153,7 @@ nnoremap <silent> <C-P> :tabprev<CR>
 
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 
+nmap <silent> <leader>b :call ToggleBackground()<CR>
 
 " Made D behave
 nnoremap D d$

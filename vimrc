@@ -11,42 +11,37 @@
 " :verbose map <c-s>
 " gives you details about the given mapping ( in our case <c-s>)
 
-set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=~/.vim/bundle/vim-colors-solarized
 
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'altercation/vim-colors-solarized'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'altercation/vim-colors-solarized'
 " Plugin 'scrooloose/syntastic'
-Plugin 'bkad/CamelCaseMotion'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'pangloss/vim-javascript'
-Plugin 'tpope/vim-surround'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tmhedberg/matchit'
-Plugin 'tpope/vim-endwise'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-ragtag'
-Plugin 'tpope/vim-fugitive'
-Plugin 'jonstoler/werewolf.vim'
-" more Plugin commands
-" ...
-call vundle#end()            " required
+Plug 'bkad/CamelCaseMotion'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-surround'
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+Plug 'mxw/vim-jsx'
+Plug 'tpope/vim-unimpaired'
+Plug 'tmhedberg/matchit'
+Plug 'tpope/vim-endwise'
+Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-fugitive'
+Plug 'leafgarland/typescript-vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-" Add Fuzzy Finder to run time path
+call plug#end()            " required
+
+set rtp+=~/.vim/plugged/vim-colors-solarized
 set rtp+=/usr/local/opt/fzf
 
-
-filetype plugin indent on    " required
+filetype plugin indent on
 
 set wildignore+=node_modules/**
 filetype off
@@ -57,17 +52,6 @@ syn sync minlines=8000
 syn sync fromstart
 
 set t_Co=256
-
-let g:is_dark_background = 1
-function! ToggleBackground() 
-	if g:is_dark_background
-		let g:is_dark_background = 0
-		set background=light
-	else
-		let g:is_dark_background = 1
-		set background=dark
-	endif
-endfunction
 
 set background=dark
 
@@ -107,35 +91,11 @@ set switchbuf=useopen
 set tabpagemax=30
 set visualbell
 
-" Display the filename in the statusline
-" set statusline=%{fugitive#statusline()}\ %<%f\ %y\ %#warningmsg#%{}%*
-" set statusline=%{fugitive#statusline()}\ %<%f\ %y\ %#warningmsg#%*
-" 
-" "set statusline=%f    " Path.
-" set statusline+=%m   " Modified flag.
-" set statusline+=%r   " Readonly flag.
-" set statusline+=%w   " Preview window flag.
-" set statusline+=\    " Space.
-" set statusline+=%=   " Right align.
-" File format, encoding and type.  Ex: "(unix/utf-8/python)"
-" set statusline+=(
-" set statusline+=%{&ff}                        " Format (unix/DOS).
-" set statusline+=/
-" set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
-" set statusline+=/
-" set statusline+=%{&ft}                        " Type (python).
-" set statusline+=)
-" " Line and column position and counts.
-" set statusline+=\ (line\ %l\/%L,\ col\ %03c)
-
-
-" Backups
 set undodir=~/.vim/tmp/undo//     " undo files
 set backupdir=~/.vim/tmp/backup// " backups
 set directory=~/.vim/tmp/swap//   " swap files
 set backup                        " enable backups
 
-" Leader
 let mapleader = ","
 let maplocalleader = "\\"
 
@@ -155,13 +115,10 @@ noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 
 nmap <silent> <leader>b :call ToggleBackground()<CR>
 
-" Made D behave
 nnoremap D d$
 
-" Don't move on *
 nnoremap * *<c-o>
 
-" Same when jumping around
 nnoremap g; g;zz
 nnoremap g, g,zz
 
@@ -216,20 +173,14 @@ nnoremap <leader>D :diffoff!<cr>
 " Yankring
 nnoremap <silent> <F6> :YRShow<cr>
 
-" Preview Files
-" TODO: install plugin https://github.com/robgleeson/hammer.vim
-" nnoremap <leader>p :w<cr>:Hammer<cr>
-
 " HTML tag closing
 inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<cr>a
 
 " copy filename of current buffer into unnamed register
 nmap <silent> <leader>fn :let @" = expand("%")<CR>
 
-
 " Better Completion
 set completeopt=longest,menuone,preview
-
 
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gs :Gstatus<cr>
@@ -248,9 +199,9 @@ augroup ft_fugitive
 augroup END
 
 function! NewScratchBuffer()
-       set buftype=nofile
-       set bufhidden=hide
-       setlocal noswapfile
+	set buftype=nofile
+	set bufhidden=hide
+	setlocal noswapfile
 endfunction
 nnoremap <silent> <leader><tab> :call NewScratchBuffer()<cr>
 
@@ -288,43 +239,32 @@ let g:NERDDefaultAlign = 'left'
 
 set nofoldenable    " disable folding
 
-augroup indentation
+augroup formatting 
   autocmd!
-  " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml,cucumber set ai sw=2 sts=2 et
-  autocmd FileType js,jsx,json set ai sw=2 sts=2 et
+  autocmd FileType d.ts,ts,tsx,js,jsx,json set ai sw=2 sts=2 et
   autocmd FileType coffee,javascript set ai sw=2 sts=2 et
   autocmd FileType xml,html,xslt,svg set ai ts=2 sw=2 sts=2
   autocmd FileType css,scss set ai ts=2 sw=2 sts=2
   autocmd FileType vim set ai ts=2 sw=2
-  autocmd FileType aspvbs set ai ts=2 sw=2 sts=2
+	autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 augroup END
 
 augroup ft_ruby
-    au!
-    " au Filetype ruby setlocal foldmethod=syntax
-    autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-    autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-    autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-    autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+	au!
+	autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+	autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+	autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+	autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 augroup END
 
 augroup ft_vim
-    au!
-    au FileType vim setlocal foldmethod=marker
-    au FileType help setlocal textwidth=78
-    " The folowing puts Vim help files in a vertical split
-    " au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+	au!
+	au FileType vim setlocal foldmethod=marker
+	au FileType help setlocal textwidth=78
 augroup END
-
 
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 colorscheme solarized
 
-let g:werewolf_day_themes = ['dark']
-let g:werewolf_night_themes = ['light']
-" default 8, use 24 hour format
-let g:werewolf_day_start = 8
-" default 20, 24 hour format
-let g:werewolf_day_end = 20

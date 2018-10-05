@@ -20,6 +20,9 @@ if [ `uname` == "Darwin" ]; then
     # unix2003 is the default in Terminal.app but not in iTerm it seems.
     export COMMAND_MODE=unix2003
     export PATH=$PATH:/Applications/p4merge.app/Contents/MacOS
+
+    NAME="Solarized Dark";
+    echo -ne "\033]50;SetProfile=$NAME\a"
 fi
 
 set -o vi
@@ -119,3 +122,13 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 export FZF_DEFAULT_OPTS="-m --reverse --inline-info"
 export FZF_DEFAULT_COMMAND='fd --type f'
+
+# Installed via Homebrew
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
+export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
+export PATH="$(yarn global bin):$PATH"
+
+# Tail postgres logs (Mac only)
+alias plog="tail -F /usr/local/var/log/postgres.log"
+

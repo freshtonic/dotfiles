@@ -33,8 +33,10 @@ Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-fugitive'
-Plug 'leafgarland/typescript-vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'jparise/vim-graphql'
 
 call plug#end()            " required
 
@@ -242,7 +244,7 @@ set nofoldenable    " disable folding
 augroup formatting 
   autocmd!
   autocmd FileType ruby,eruby,yaml,cucumber set ai sw=2 sts=2 et
-  autocmd FileType d.ts,ts,tsx,js,jsx,json set ai sw=2 sts=2 et
+  autocmd FileType typescript set ai sw=2 sts=2 et
   autocmd FileType coffee,javascript set ai sw=2 sts=2 et
   autocmd FileType xml,html,xslt,svg set ai ts=2 sw=2 sts=2
   autocmd FileType css,scss set ai ts=2 sw=2 sts=2
@@ -263,6 +265,9 @@ augroup ft_vim
 	au FileType vim setlocal foldmethod=marker
 	au FileType help setlocal textwidth=78
 augroup END
+
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
+autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.jsx
 
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"

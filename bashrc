@@ -132,3 +132,5 @@ export PATH="$(yarn global bin):$PATH"
 # Tail postgres logs (Mac only)
 alias plog="tail -F /usr/local/var/log/postgres.log"
 
+export GNUPGHOME="${ASDF_DIR:-$HOME/.asdf}/keyrings/nodejs" && mkdir -p "$GNUPGHOME" && chmod 0700 "$GNUPGHOME"
+

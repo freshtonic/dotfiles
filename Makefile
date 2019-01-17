@@ -23,7 +23,10 @@ TARGETS=$(HOME)/.git-completion.bash \
 	$(HOME)/bin/xmldiff \
 	$(HOME)/.ctags \
 	$(HOME)/.Xmodmap \
-	$(HOME)/.xterm-256color.ti
+	$(HOME)/.xterm-256color.ti \
+	$(HOME)/.config \
+	$(HOME)/.config/kitty \
+	$(HOME)/.config/kitty/kitty.conf
 
 $(HOME)/.git-completion.bash: git-completion.bash
 	cp git-completion.bash $@
@@ -46,10 +49,16 @@ $(HOME)/.vimrc: vimrc
 $(HOME)/.nvimrc: vimrc
 	cp vimrc $@
 
-$(HOME)/.config/nvim: $(HOME)/.vim
+$(HOME)/.config:
+	mkdir -p $@
+
+$(HOME)/.config/kitty:
+	mkdir -p $@
+
+$(HOME)/.config/nvim: $(HOME)/.config $(HOME)/.vim
 	ln -f -s $(HOME)/.vim $@
 
-$(HOME)/.config/nvim/init.vim: $(HOME)/.config/nvim $(HOME)/.vimrc
+$(HOME)/.config/nvim/init.vim: $(HOME)/.config $(HOME)/.config/nvim $(HOME)/.vimrc
 	ln -f -s $(HOME)/.vimrc $@
 
 $(HOME)/.zshrc: zshrc 
@@ -94,12 +103,16 @@ $(HOME)/bin/xmldiff: bin/xmldiff
 $(HOME)/.ctags: ctags
 	cp ctags $@
 
+$(HOME)/.config/kitty/kitty.conf: $(HOME)/.config/kitty kitty.conf
+	cp kitty.conf $@
+
 # Works around Ctrl-H being misinterpreted as backspace in neovim
 # due to bad OSX terminfo. Regular vim must ignore some OS-provided
-# terminfo for it not to misbehave!
+# cterminfo for it not to misbehave!
 $(HOME)/.xterm-256color.ti:
 	@infocmp xterm-256color | sed 's/kbs=^[hH]/kbs=\\177/' > $@
 
+# Kitty is a unique snowflake and its config cannot be handled via rcup
 install: $(TARGETS) 
 
 clean:

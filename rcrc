@@ -1,0 +1,2 @@
+EXCLUDES="README.md Makefile kitty.conf"
+DOTFILES_DIRS="$HOME/projects/dotfiles"

@@ -17,7 +17,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'altercation/vim-colors-solarized'
-" Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 Plug 'bkad/CamelCaseMotion'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -37,6 +37,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'jparise/vim-graphql'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()            " required
 
@@ -272,4 +273,6 @@ autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.jsx
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 colorscheme solarized
+
+let g:rustfmt_autosave = 1
 

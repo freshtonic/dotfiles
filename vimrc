@@ -33,17 +33,19 @@ Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-fugitive'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'jparise/vim-graphql'
 Plug 'rust-lang/rust.vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 call plug#end()            " required
 
 set rtp+=~/.vim/plugged/vim-colors-solarized
-set rtp+=/usr/local/opt/fzf
+" set rtp+=/usr/local/opt/fzf
 
 filetype plugin indent on
 

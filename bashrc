@@ -52,9 +52,7 @@ fi
 export GIT_PS1_SHOWSTASHSTATE=yes
 export GIT_PS1_SHOWUNTRACKEDFILES=yes
 export GIT_PS1_SHOWUPSTREAM=verbose
-if [ -f ~/.git-completion.bash ]; then
-    . ~/.git-completion.bash
-fi
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 
 function _update_ps1()

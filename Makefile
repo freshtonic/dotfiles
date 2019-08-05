@@ -1,7 +1,6 @@
 
 HOME=$(shell echo $$HOME)
-TARGETS=$(HOME)/.git-completion.bash \
-	$(HOME)/.gitconfig \
+TARGETS= $(HOME)/.gitconfig \
 	$(HOME)/.vim \
 	$(HOME)/.nvim \
 	$(HOME)/.tmux.conf\
@@ -27,9 +26,6 @@ TARGETS=$(HOME)/.git-completion.bash \
 	$(HOME)/.config \
 	$(HOME)/.config/kitty \
 	$(HOME)/.config/kitty/kitty.conf
-
-$(HOME)/.git-completion.bash: git-completion.bash
-	cp git-completion.bash $@
 
 $(HOME)/.gitconfig: gitconfig
 	cp gitconfig $@

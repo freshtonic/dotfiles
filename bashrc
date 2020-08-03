@@ -6,6 +6,8 @@ export PATH=/opt/local/bin:$PATH
 export PATH=/opt/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 
+export HOMEBREW_NO_AUTO_UPDATE=1 
+
 DEBEMAIL=freshtonic@gmail.com
 DEBFULLNAME="James Sadler"
 export DEBEMAIL DEBFULLNAME
@@ -125,7 +127,6 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
-export PATH="$(yarn global bin):$PATH"
 
 # Tail postgres logs (Mac only)
 alias plog="tail -F /usr/local/var/log/postgres.log"

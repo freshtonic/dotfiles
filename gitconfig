@@ -1,8 +1,6 @@
 [user]
 	name = James Sadler
 	email = freshtonic@gmail.com
-[core]
-	pager = "diff-so-fancy | less --tabs=4 -RFX"
 [credential]
 	helper = osxkeychain
 [merge]
@@ -46,5 +44,5 @@
 [push]
 	default = current
 [rerere]
-    enabled = true
+    enabled = false
 

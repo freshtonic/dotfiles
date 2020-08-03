@@ -44,7 +44,7 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()            " required
 
-set rtp+=~/.vim/plugged/vim-colors-solarized
+" set rtp+=~/.vim/plugged/vim-colors-solarized
 " set rtp+=/usr/local/opt/fzf
 
 filetype plugin indent on
@@ -245,15 +245,18 @@ let g:NERDDefaultAlign = 'left'
 
 set nofoldenable    " disable folding
 
+set ai sw=2 sts=2 et
+
 augroup formatting 
   autocmd!
-  autocmd FileType ruby,eruby,yaml,cucumber set ai sw=2 sts=2 et
+  autocmd FileType ruby,eruby,yaml,cucumber,md set ai sw=2 sts=2 et
   autocmd FileType typescript set ai sw=2 sts=2 et
   autocmd FileType coffee,javascript set ai sw=2 sts=2 et
-  autocmd FileType xml,html,xslt,svg set ai ts=2 sw=2 sts=2
-  autocmd FileType css,scss set ai ts=2 sw=2 sts=2
-  autocmd FileType vim set ai ts=2 sw=2
-	autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+  autocmd FileType xml,html,xslt,svg set ai sw=2 sts=2 et
+  autocmd FileType css,scss set ai sw=2 sts=2 et
+  autocmd FileType sql set ai sw=2 sts=2 et
+  autocmd FileType vim set ai sw=2 sts=2 et
+  " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 augroup END
 
 augroup ft_ruby
@@ -273,9 +276,9 @@ augroup END
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
 autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.jsx
 
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-colorscheme solarized
+" let g:solarized_visibility = "high"
+" let g:solarized_contrast = "high"
+" colorscheme solarized
 
 let g:rustfmt_autosave = 1
 

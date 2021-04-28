@@ -62,17 +62,9 @@ export GIT_PS1_SHOWUNTRACKEDFILES=yes
 export GIT_PS1_SHOWUPSTREAM=verbose
 
 
-# function _update_ps1()
-# {
-#    export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\nλ '
-#    source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh 
-#    true
-# }
-
-# export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"; _update_ps1'
 
 function _update_ps1() {
-    PS1="$($GOPATH/bin/powerline-go -error $? -jobs $(jobs -p | wc -l))"
+    export PS1="$(powerline-go -error $? -jobs $(jobs -p | wc -l))"
 
     # Uncomment the following line to automatically clear errors after showing
     # them once. This not only clears the error for powerline-go, but also for
@@ -81,6 +73,9 @@ function _update_ps1() {
 
     #set "?"
 }
+
+# export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"; _update_ps1'
+export PROMPT_COMMAND='_update_ps1'
 
 if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"

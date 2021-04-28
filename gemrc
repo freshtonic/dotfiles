@@ -1,7 +1,7 @@
 --- 
 :verbose: true
 :sources: 
-- http://rubygems.org
+- https://rubygems.org
 :backtrace: false
 :bulk_threshold: 1000
 :benchmark: false

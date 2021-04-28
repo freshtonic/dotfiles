@@ -1,10 +1,13 @@
 
+# fucking macos catalina
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/sbin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/bin:$PATH
-export PATH=/usr/local/share/npm/bin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
 
 export HOMEBREW_NO_AUTO_UPDATE=1 
 
@@ -51,18 +54,37 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
 export GIT_PS1_SHOWSTASHSTATE=yes
 export GIT_PS1_SHOWUNTRACKEDFILES=yes
 export GIT_PS1_SHOWUPSTREAM=verbose
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 
-function _update_ps1()
-{
-   export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\nλ '
+# function _update_ps1()
+# {
+#    export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\nλ '
+#    source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh 
+#    true
+# }
+
+# export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"; _update_ps1'
+
+function _update_ps1() {
+    PS1="$($GOPATH/bin/powerline-go -error $? -jobs $(jobs -p | wc -l))"
+
+    # Uncomment the following line to automatically clear errors after showing
+    # them once. This not only clears the error for powerline-go, but also for
+    # everything else you run in that shell. Don't enable this if you're not
+    # sure this is what you want.
+
+    #set "?"
 }
 
-export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"; _update_ps1'
+if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
 
 function urlencode {
    echo $1 | perl -MURI::Escape -lne 'print uri_escape($_)'
@@ -123,13 +145,14 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export FZF_DEFAULT_OPTS="-m --reverse --inline-info"
 export FZF_DEFAULT_COMMAND='fd --type f'
 
-# Installed via Homebrew
-export GROOVY_HOME=/usr/local/opt/groovy/libexec
-
-export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
-
 # Tail postgres logs (Mac only)
-alias plog="tail -F /usr/local/var/log/postgres.log"
+# alias plog="tail -F /usr/local/var/log/postgres.log"
 
-export GNUPGHOME="${ASDF_DIR:-$HOME/.asdf}/keyrings/nodejs" && mkdir -p "$GNUPGHOME" && chmod 0700 "$GNUPGHOME"
+# export GNUPGHOME="${ASDF_DIR:-$HOME/.asdf}/keyrings/nodejs" && mkdir -p "$GNUPGHOME" && chmod 0700 "$GNUPGHOME"
+
+# Now when you install Erlang, you'll have helpful docs in
+# iex on erlang functions like you do Elixir functions. 
+export KERL_BUILD_DOCS="yes"
+
+eval "$(asdf exec direnv hook bash)"
 

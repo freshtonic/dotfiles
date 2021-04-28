@@ -2,15 +2,13 @@
 export skip_global_compinit=1
 
 # Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
-
 export ZSH_THEME="ashleydev"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ruby rails git bundler rvm)
+# plugins=(ruby rails git bundler rvm)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/sbin:$PATH
@@ -42,10 +40,7 @@ zstyle ':vcs_info:*' enable git
 
 precmd () { vcs_info }
 
-DEBEMAIL=freshtonic@gmail.com
-DEBFULLNAME="James Sadler"
-export DEBEMAIL DEBFULLNAME
-export EDITOR=$(which mvim)
+export EDITOR=$(which vim)
 export GIT_EDITOR="$(which vim)"
 alias vi=vim
 
@@ -65,5 +60,4 @@ do
 done
 
 source ~/.keychain/$HOST-sh
-
-if [ -s ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
+source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh

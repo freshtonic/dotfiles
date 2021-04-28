@@ -1,8 +1,11 @@
+[init]
+        defaultBranch = main
 [user]
 	name = James Sadler
-	email = freshtonic@gmail.com
-[credential]
-	helper = osxkeychain
+	email = james@cipherstash.com
+        signingkey = 2313BD4496FC46A3DC52768976F0A08B315C9BE8
+[commit]
+        #gpgsign  = true
 [merge]
 	tool = p4merge
 [diff]

@@ -25,7 +25,8 @@ TARGETS= $(HOME)/.gitconfig \
 	$(HOME)/.xterm-256color.ti \
 	$(HOME)/.config \
 	$(HOME)/.config/kitty \
-	$(HOME)/.config/kitty/kitty.conf
+	$(HOME)/.config/kitty/kitty.conf \
+	$(HOME)/Brewfile
 
 $(HOME)/.gitconfig: gitconfig
 	cp gitconfig $@
@@ -102,6 +103,9 @@ $(HOME)/.ctags: ctags
 $(HOME)/.config/kitty/kitty.conf: $(HOME)/.config/kitty kitty.conf
 	cp kitty.conf $@
 
+$(HOME)/Brewfile: Brewfile
+	cp Brewfile $@
+
 # Works around Ctrl-H being misinterpreted as backspace in neovim
 # due to bad OSX terminfo. Regular vim must ignore some OS-provided
 # cterminfo for it not to misbehave!
@@ -113,3 +117,4 @@ install: $(TARGETS)
 
 clean:
 	rm -fr $(TARGETS) 
+

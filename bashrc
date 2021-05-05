@@ -14,6 +14,8 @@ export PATH=/usr/sbin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
+export GOROOT=/usr/local/go
+export PATH=$GOROOT/bin:$PATH
 
 export HOMEBREW_NO_AUTO_UPDATE=1 
 

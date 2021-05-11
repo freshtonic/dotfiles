@@ -26,7 +26,11 @@ TARGETS= $(HOME)/.gitconfig \
 	$(HOME)/.config \
 	$(HOME)/.config/kitty \
 	$(HOME)/.config/kitty/kitty.conf \
-	$(HOME)/Brewfile
+	$(HOME)/Brewfile \
+	$(HOME)/com.googlecode.iterm2.plist
+
+$(HOME)/com.googlecode.iterm2.plist: com.googlecode.iterm2.plist
+	cp com.googlecode.iterm2.plist $@
 
 $(HOME)/.gitconfig: gitconfig
 	cp gitconfig $@

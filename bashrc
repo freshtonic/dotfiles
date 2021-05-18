@@ -33,9 +33,6 @@ if [ `uname` == "Darwin" ]; then
     # unix2003 is the default in Terminal.app but not in iTerm it seems.
     export COMMAND_MODE=unix2003
     export PATH=$PATH:/Applications/p4merge.app/Contents/MacOS
-
-    NAME="Solarized Dark";
-    echo -ne "\033]50;SetProfile=$NAME\a"
 fi
 
 set -o vi

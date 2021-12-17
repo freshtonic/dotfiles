@@ -82,7 +82,7 @@ function _update_ps1() {
 # export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"; _update_ps1'
 export PROMPT_COMMAND='_update_ps1'
 
-if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+if [ "$TERM" != "linux" ] && [ -f "powerline-go" ]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 

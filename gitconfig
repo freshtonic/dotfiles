@@ -45,6 +45,7 @@
 	ss = !sh -c 'git status -s | cut -c4-'
 	serve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git
         recent = branch --sort=-committerdate --format="%(committerdate:relative)%09%(refname:short)"
+        vb = version-bump --notes
 [push]
 	default = current
 [rerere]

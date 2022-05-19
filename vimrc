@@ -16,7 +16,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/syntastic'
 Plug 'bkad/CamelCaseMotion'
 Plug 'vim-airline/vim-airline'
@@ -25,7 +24,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-surround'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
-Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-unimpaired'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-endwise'
@@ -33,19 +31,14 @@ Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-fugitive'
-" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'jparise/vim-graphql'
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()            " required
-
-" set rtp+=~/.vim/plugged/vim-colors-solarized
-" set rtp+=/usr/local/opt/fzf
 
 filetype plugin indent on
 
@@ -257,29 +250,24 @@ augroup formatting
   autocmd FileType css,scss set ai sw=2 sts=2 et
   autocmd FileType sql set ai sw=2 sts=2 et
   autocmd FileType vim set ai sw=2 sts=2 et
-  " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 augroup END
 
 augroup ft_ruby
-	au!
-	autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-	autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-	autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-	autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+  au!
+  autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+  autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+  autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+  autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 augroup END
 
 augroup ft_vim
-	au!
-	au FileType vim setlocal foldmethod=marker
-	au FileType help setlocal textwidth=78
+  au!
+  au FileType vim setlocal foldmethod=marker
+  au FileType help setlocal textwidth=78
 augroup END
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
 autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.jsx
-
-" let g:solarized_visibility = "high"
-" let g:solarized_contrast = "high"
-" colorscheme solarized
 
 let g:rustfmt_autosave = 1
 

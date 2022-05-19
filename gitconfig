@@ -3,9 +3,9 @@
 [user]
 	name = James Sadler
 	email = james@cipherstash.com
-        signingkey = 2313BD4496FC46A3DC52768976F0A08B315C9BE8
+	signingkey = 61EB4B798EB2500A0AA5BDDE9103CA4722A82CDC
 [commit]
-        #gpgsign  = true
+	gpgSign = yes
 [merge]
 	tool = p4merge
 [diff]

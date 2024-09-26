@@ -3,9 +3,11 @@
 [user]
 	name = James Sadler
 	email = james@cipherstash.com
-	signingkey = 61EB4B798EB2500A0AA5BDDE9103CA4722A82CDC
+        signingkey = ~/.ssh/id_rsa-github
 [commit]
 	gpgSign = yes
+[gpg]
+        format = ssh
 [merge]
 	tool = p4merge
 [diff]
@@ -45,7 +47,7 @@
 	ss = !sh -c 'git status -s | cut -c4-'
 	serve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git
         recent = branch --sort=-committerdate --format="%(committerdate:relative)%09%(refname:short)"
-        vb = version-bump --notes
+        vb = !git-version-bump --notes
 [push]
 	default = current
 [rerere]

@@ -11,11 +11,12 @@ export HISTSIZE=5000
 # fucking macos catalina
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-export PATH=/opt/homebrew/bin:$PATH
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
 
 export HOMEBREW_NO_AUTO_UPDATE=1 
 
-export EDITOR=$(which nvim || which vim)
+export EDITOR="$(which nvim || which vim)"
 alias vi=$(which nvim || which vim)
 alias vim=$(which nvim || which vim)
 
@@ -84,8 +85,7 @@ alias mer="mix ecto.rollback"
 alias mpr="mix phx.routes"
 alias im="iex -S mix"
 
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+eval "$(~/.local/bin/mise activate bash)"
 
 export ERL_AFLAGS="-kernel shell_history enabled"
 # Now when you install Erlang, you'll have helpful docs in
@@ -94,11 +94,8 @@ export KERL_BUILD_DOCS="yes"
 
 
 # Enable the fuxxy finder keybindings
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -r "~/.fzf.bash" ] && source "~/.fzf.bash"
 
 export FZF_DEFAULT_OPTS="-m --reverse --inline-info"
-export FZF_DEFAULT_COMMAND='fd --type f'
-
-
-eval "$(asdf exec direnv hook bash)"
+export FZF_DEFAULT_COMMAND='fd --type f -H -E ".git"'
 

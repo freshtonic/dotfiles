@@ -36,7 +36,6 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()            " required
 
@@ -270,4 +269,7 @@ autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
 autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.jsx
 
 let g:rustfmt_autosave = 1
+
+
+set textwidth=120
 

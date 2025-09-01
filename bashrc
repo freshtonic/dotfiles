@@ -10,15 +10,37 @@ export HISTSIZE=5000
 
 # fucking macos catalina
 export BASH_SILENCE_DEPRECATION_WARNING=1
+#
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+# if [ -f /etc/bash_completion ]; then
+#     . /etc/bash_completion
+# fi
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 export HOMEBREW_NO_AUTO_UPDATE=1 
 
+if type brew &>/dev/null
+then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+  then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
+    do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+    done
+  fi
+fi
+
 export EDITOR="$(which nvim || which vim)"
-alias vi=$(which nvim || which vim)
-alias vim=$(which nvim || which vim)
+alias vi="$(which nvim || which vim)"
+alias vim="$(which nvim || which vim)"
 
 if [ `uname` == "Darwin" ]; then
     # The following fixes iTerm issues.
@@ -32,14 +54,6 @@ set -o vi
 # update the values of LINES and COLUMNS.
 # shopt -s checkwinsize
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 function _update_ps1() {
     export PS1="$(powerline-go -newline -error $? -jobs $(jobs -p | wc -l))"
@@ -69,33 +83,18 @@ alias be='bundle exec'
 alias bi='bundle install'
 alias tmux='TERM=screen-256color-bce tmux'
 
-# Elixir/Phoenix Aliases
-alias mh="mix help"
-alias mps="mix phx.server"
-alias mt="mix test"
-alias mdg="mix deps.get"
-alias mdu="mix deps.update"
-alias mc="mix compile"
-alias megm="mix ecto.gen.migration"
-alias med="mix ecto.drop"
-alias mec="mix ecto.create"
-alias mes="mix ecto.setup"
-alias mem="mix ecto.migrate"
-alias mer="mix ecto.rollback"
-alias mpr="mix phx.routes"
-alias im="iex -S mix"
-
 eval "$(~/.local/bin/mise activate bash)"
-
-export ERL_AFLAGS="-kernel shell_history enabled"
-# Now when you install Erlang, you'll have helpful docs in
-# iex on erlang functions like you do Elixir functions. 
-export KERL_BUILD_DOCS="yes"
-
 
 # Enable the fuxxy finder keybindings
 [ -r "~/.fzf.bash" ] && source "~/.fzf.bash"
 
 export FZF_DEFAULT_OPTS="-m --reverse --inline-info"
 export FZF_DEFAULT_COMMAND='fd --type f -H -E ".git"'
+
+# eval "$(direnv hook bash)"
+
+eval "$(atuin init bash)"
+
+source <(jj util completion bash)
+
 

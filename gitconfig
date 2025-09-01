@@ -25,6 +25,7 @@
 	l = log --graph --pretty=format:'%Cblue%h%d%Creset %ar %Cgreen%an%Creset %s'
     ls = ls-files
 	f = fetch
+        fall = fetch --all
 	ff = merge --ff-only
 	co = checkout
 	s = status
@@ -53,3 +54,5 @@
 [rerere]
     enabled = false
 
+[gpg "ssh"]
+	allowedSignersFile = ~/.config/git/allowed_signers

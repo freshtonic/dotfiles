@@ -1,6 +1,7 @@
 
 HOME=$(shell echo $$HOME)
 TARGETS= $(HOME)/.gitconfig \
+	$(HOME)/.gitconfig-no-sign \
 	$(HOME)/.vim \
 	$(HOME)/.nvim \
 	$(HOME)/.tmux.conf\
@@ -9,7 +10,6 @@ TARGETS= $(HOME)/.gitconfig \
 	$(HOME)/.config/nvim \
 	$(HOME)/.config/nvim/init.vim \
 	$(HOME)/.bashrc \
-	$(HOME)/.bash-preexec.sh \
 	$(HOME)/.bash_profile \
 	$(HOME)/.editrc \
 	$(HOME)/.inputrc \
@@ -35,6 +35,9 @@ $(HOME)/com.googlecode.iterm2.plist: com.googlecode.iterm2.plist
 
 $(HOME)/.gitconfig: gitconfig
 	cp gitconfig $@
+
+$(HOME)/.gitconfig-no-sign: gitconfig-no-sign
+	cp gitconfig-no-sign $@
 
 $(HOME)/.vim: vim
 	cp -R vim $@
@@ -68,9 +71,6 @@ $(HOME)/.zshrc: zshrc
 
 $(HOME)/.bashrc: bashrc
 	cp bashrc $@
-
-$(HOME)/.bash-preexec.sh: bash-preexec.sh 
-	cp bash-preexec.sh $@
 
 $(HOME)/.bash_profile: bash_profile
 	cp bash_profile $@

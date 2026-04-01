@@ -1,9 +1,9 @@
-# don't put duplicate lines in the history. See bash(1) for more options
-#export HISTCONTROL=ignoredups
-## ... and ignore same sucessive entries.
-#export HISTCONTROL=ignoreboth
-## Store up to 5000 entries in history
-#export HISTSIZE=5000
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoreboth
+export HISTSIZE=5000
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
@@ -27,13 +27,17 @@ then
   fi
 fi
 
-#
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-# if [ -f /etc/bash_completion ]; then
-#     . /etc/bash_completion
-# fi
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+if [ -f ~/.config/tree-pool/completion.sh ]; then
+    . ~/.config/tree-pool/completion.sh
+fi
 
 export EDITOR="$(which nvim || which vim)"
 alias vi="$(which nvim || which vim)"
@@ -46,14 +50,6 @@ if [ `uname` == "Darwin" ]; then
 fi
 
 set -o vi
-
-
-
-source ~/.bash-preexec.sh
-
-precmd() {
-    export PS1="$(powerline-go -newline -error $? -jobs $(jobs -p | wc -l))"
-}
 
 # Make sure additional SSH keys will be tried when making SSH connections
 for key in $(cd ~/.ssh && ls | grep id_ | grep -v \\.pub$ ); do
@@ -69,9 +65,21 @@ eval "$(~/.local/bin/mise activate bash)"
 export FZF_DEFAULT_OPTS="-m --reverse --inline-info"
 export FZF_DEFAULT_COMMAND='fd --type f -H -E ".git"'
 
-source <(jj util completion bash)
+# pnpm
+export PNPM_HOME="/Users/jamessadler/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
+# Needed for atuin & PS1 updating
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+
+precmd() {
+    export PS1="$(powerline-go -newline -error $? -git-mode fancy)"
+}
+
+. "$HOME/.atuin/bin/env"
 eval "$(atuin init bash)"
-
-
 

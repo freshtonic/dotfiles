@@ -56,3 +56,6 @@
 
 [gpg "ssh"]
 	allowedSignersFile = ~/.config/git/allowed_signers
+
+[includeIf "env:CLAUDE_SANDBOX=1"]
+    path = ~/.gitconfig-no-sign
